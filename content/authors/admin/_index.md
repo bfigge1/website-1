@@ -12,6 +12,8 @@ role: Doctoral Candidate in Economics
 organizations:
 - name: Georgia State University
   url:
+- name: Georgia Policy Labs
+  url: https://gpl.gsu.edu/
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include Crisis Pregnancy Centers, Municipal Building Policy, Education
@@ -26,7 +28,7 @@ education:
   courses:
   - course: PhD in Economics
     institution: Georgia State University
-    year: 2022
+    year: 2022 (expected)
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
@@ -50,11 +52,11 @@ social:
   link: https://www.linkedin.com/in/bela-figge/
 
 # Link to a PDF of your resume/CV.
-# To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.toml`, 
+# To use: copy your resume to `static/uploads/bfigge_2021_04.pdf`, enable `ai` icons in `params.toml`, 
 # and uncomment the lines below.
 # - icon: cv
 #   icon_pack: ai
-#   link: uploads/resume.pdf
+#   link: uploads/bfigge_2021_04.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
