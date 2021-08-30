@@ -20,7 +20,7 @@ bio: My research interests include Crisis Pregnancy Centers, Municipal Building 
 
 # Interests to show in About widget
 interests:
-- Public Economics
+- Health Economics
 - Environmental Economics
 
 # Education to show in About widget
@@ -65,7 +65,6 @@ email: ""
 highlight_name: false
 ---
 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+I'm an Economics PhD candidate and on the job market. In my job market paper I study the location choice of Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
