@@ -72,4 +72,3 @@ As an applied microeconomist, my interests span health economics, public economi
 In my job market paper I study the location choice of Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
 I will be available for interviews at the 2022 ASSA Meeting in Boston and the 2021 European Job Market for Economists in Barcelona.
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
