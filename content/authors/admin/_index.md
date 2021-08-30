@@ -65,6 +65,11 @@ email: ""
 highlight_name: false
 ---
 
-I'm an Economics PhD candidate and on the job market. In my job market paper I study the location choice of Crisis Pregnancy Centers and how they shape fertility outcomes. 
+I'm an Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs.
 
+As an applied microeconomist, my interests span health economics, public economics, and environmental economics. 
+
+In my job market paper I study the location choice of Crisis Pregnancy Centers and how they shape fertility outcomes. 
+
+I will be available for interviews at the 2022 ASSA Meeting in Boston and the 2021 European Job Market for Economists in Barcelona.
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
