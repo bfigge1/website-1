@@ -11,7 +11,7 @@ main:
     url: '#research'
     weight: 58
   - name: Teaching
-    url: 'teaching/index.md'
+    url: 'projects/teaching'
     weight: 66
   - name: CV
     url: uploads/bfigge_2021_04.pdf
