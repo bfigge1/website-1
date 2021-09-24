@@ -22,6 +22,7 @@ bio: My research interests include health, environmental, and labor economics
 interests:
 - Health Economics
 - Environmental Economics
+- Labor Economics
 
 # Education to show in About widget
 education:
@@ -41,7 +42,7 @@ social:
 - icon: twitter
   icon_pack: ai
   link: https://twitter.com/BelaFigge
-- icon: google-scholar # Alternatively, use `google-scholar` icon from `ai` icon pack
+- icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
   icon_pack: fas
   link: https://scholar.google.com/citations?user=KmpVxdUAAAAJ&hl=en
 - icon: github
@@ -59,11 +60,12 @@ social:
 #   link: uploads/bfigge_2021_04.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "bfigge1@gsu.edu"
+email: "bfigge1@gsu"
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
+<br><\br>
 
 I'm an Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs.
 
