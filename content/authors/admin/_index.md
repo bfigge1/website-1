@@ -16,7 +16,7 @@ organizations:
   url: https://gpl.gsu.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include Crisis Pregnancy Centers, Municipal Building Policy, Education
+bio: My research interests include health, environmental, and labor economics
 
 # Interests to show in About widget
 interests:
@@ -39,9 +39,9 @@ social:
   icon_pack: fas
   link: '/#contact'
 - icon: twitter
-  icon_pack: fab
+  icon_pack: ai
   link: https://twitter.com/BelaFigge
-- icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
+- icon: google-scholar # Alternatively, use `google-scholar` icon from `ai` icon pack
   icon_pack: fas
   link: https://scholar.google.com/citations?user=KmpVxdUAAAAJ&hl=en
 - icon: github
@@ -59,16 +59,16 @@ social:
 #   link: uploads/bfigge_2021_04.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ""
+email: "bfigge1@gsu.edu"
 
 # Highlight the author in author lists? (true/false)
-highlight_name: false
+highlight_name: true
 ---
 
 I'm an Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs.
 
-As an applied microeconomist, my interests span health economics, public economics, and environmental economics. 
+As an applied microeconomist, my interests span health economics, labor , and environmental economics. 
 
-In my job market paper I study the location choice of Crisis Pregnancy Centers and how they shape fertility outcomes. 
+In my job market paper I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
 I will be available for interviews at the 2022 ASSA Meeting in Boston and the 2021 European Job Market for Economists in Barcelona.
