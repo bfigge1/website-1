@@ -5,7 +5,7 @@
 
 main:
   - name: JMP
-    url: '#research'
+    url: '#featured'
     weight: 52
   - name: Research
     url: '#research'
