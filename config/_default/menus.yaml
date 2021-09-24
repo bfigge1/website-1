@@ -9,16 +9,16 @@ main:
     weight: 52
   - name: Research
     url: '#research'
-    weight: 58
+    weight: 56
   - name: Teaching
     url: '#teaching'
-    weight: 66
+    weight: 64
   - name: CV
     url: uploads/bfigge_2021_04.pdf
-    weight: 74
+    weight: 72
   - name: Contact
     url: '#contact'
-    weight: 78
+    weight: 76
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
