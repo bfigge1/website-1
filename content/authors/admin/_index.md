@@ -65,7 +65,7 @@ email: "bfigge1@gsu"
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
-<br><\br>
+<br>
 
 I'm an Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs.
 
