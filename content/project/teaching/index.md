@@ -32,5 +32,5 @@ slides: ""
 
 I taught Global Economics, an introductory course for non-majors, as principal instructor. Click the inks below for teaching evaluations.
 
-{{% staticref "uploads/cv.pdf" %}}Download my CV{{% /staticref %}
+url: uploads/bfigge_2021_04.pdf
 
