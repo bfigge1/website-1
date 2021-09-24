@@ -30,7 +30,7 @@ url_video: ""
 slides: ""
 ---
 
-I taught Global Economics, an introductory course for non-majors, as principal instructor. Click the inks below for teaching evaluations.
+I taught Global Economics, an introductory course for non-majors, as principal instructor. 
 
-[I'm a link](uploads/bfigge_2021_04.pdf)  <!--open in new tab-->
-
+[Teaching Evaluation (1)[PDF]](Bfigge_GlobalEcon_Evals_1.pdf)  <!--open in new tab-->
+[Teaching Evaluation (2)[PDF]](Bfigge_GlobalEcon_Evals_2.pdf)  <!--open in new tab-->
