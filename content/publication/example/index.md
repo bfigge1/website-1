@@ -1,35 +1,38 @@
 ---
-title: "Blue Cross - Where Do I Go Now? The Role of Crisis Pregnancy Centers in Fertility Decisions"
+title: "An example conference paper"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
+- Robert Ford
 
 # Author notes (optional)
-author_notes: []
+author_notes:
+- "Equal contribution"
+- "Equal contribution"
 
-date: "2021-09-30T00:00:00Z"
+date: "2013-07-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2022-07-01T00:00:00Z"
+publishDate: "2017-01-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["7"]
+publication_types: ["1"]
 
 # Publication name and optional abbreviated publication name.
-publication: In **
-publication_short: In **
+publication: In *Wowchemy Conference*
+publication_short: In *ICW*
 
-abstract: Crisis Pregnancy Centers provide abstinence education and counseling services from a “pro-life” (anti-abortion) perspective. I propose that CPCs, by providing pregnancy related services in local communities, are a missing puzzle piece in our understanding of abortion access and women’s fertility outcomes. This study investigates where CPCs locate and how CPCs shape fertility behavior. Abstinence education could increase (or decrease) the risk of pregnancy. CPCs could affect the abortion rate by providing abortion alternatives, such as adoption, and by altering women’s beliefs about and preferences toward abortions. Preliminary results from a renewal model do not explain where CPCs locate or whether CPCs impact fertility outcomes. Early results from an event study specification show that CPCs reduce the abortion rate.
+abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
 
 # Summary. An optional shortened abstract.
-summary: Crisis Pregnancy Centers provide abstinence education and counseling services from a “pro-life” (anti-abortion) perspective.
+summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 
 tags: []
 
@@ -38,8 +41,8 @@ featured: true
 
 # Custom links (uncomment lines below)
 # links:
-# - name: JMP Draft
-#   url: belafigge.com
+# - name: Custom Link
+#   url: http://example.org
 
 url_pdf: ''
 url_code: ''
@@ -52,7 +55,7 @@ url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
-image: []
+image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
   focal_point: ""
   preview_only: false
@@ -62,7 +65,7 @@ image: []
 #   Simply enter your project's folder or file name without extension.
 #   E.g. `internal-project` references `content/project/internal-project/index.md`.
 #   Otherwise, set `projects: []`.
-projects:[]
+projects:
 - example
 
 # Slides (optional).
@@ -70,7 +73,7 @@ projects:[]
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides: "example"` references `content/slides/example/index.md`.
 #   Otherwise, set `slides: ""`.
-slides: ""
+slides: example
 ---
 
 {{% callout note %}}
