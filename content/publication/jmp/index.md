@@ -15,7 +15,7 @@ date: "2013-07-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2021-09-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -24,13 +24,13 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["7"]
 
 # Publication name and optional abbreviated publication name.
-publication: In *Wowchemy Conference*
-publication_short: In *ICW*
+publication: ""
+publication_short: ""
 
 abstract: Crisis Pregnancy Centers provide abstinence education and counseling services from a “pro-life” (anti-abortion) perspective. I propose that CPCs, by providing pregnancy related services in local communities, are a missing puzzle piece in our understanding of abortion access and women’s fertility outcomes. This study investigates where CPCs locate and how CPCs shape fertility behavior. Abstinence education could increase (or decrease) the risk of pregnancy. CPCs could affect the abortion rate by providing abortion alternatives, such as adoption, and by altering women’s beliefs about and preferences toward abortions. Preliminary results from a renewal model do not explain where CPCs locate or whether CPCs impact fertility outcomes. Early results from an event study specification show that CPCs reduce the abortion rate.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: Crisis Pregnancy Centers provide abstinence education and counseling services from a “pro-life” (anti-abortion) perspective.
 
 tags: []
 
@@ -54,7 +54,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
+  caption: ""
   focal_point: ""
   preview_only: false
 
