@@ -4,19 +4,21 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  
+  - name: JMP
+    url: '#featured'
+    weight: 52
   - name: Research
     url: '#research'
-    weight: 52
+    weight: 58
   - name: Teaching
     url: '#teaching'
-    weight: 60
+    weight: 66
   - name: CV
     url: uploads/bfigge_2021_04.pdf
-    weight: 68
+    weight: 74
   - name: Contact
     url: '#contact'
-    weight: 74
+    weight: 80
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
