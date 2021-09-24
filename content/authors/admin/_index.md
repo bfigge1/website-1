@@ -69,7 +69,7 @@ highlight_name: true
 
 I'm an Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs.
 
-As an applied microeconomist, my interests span health economics, labor , and environmental economics. 
+As an applied microeconomist, my interests span health, labor, and environmental economics. 
 
 In my job market paper I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
