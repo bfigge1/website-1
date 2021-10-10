@@ -11,7 +11,7 @@ role: Doctoral Candidate in Economics
 # Organizations/Affiliations to show in About widget
 organizations:
 - name: Georgia State University
-  url:
+  url: https://aysps.gsu.edu/phd-student/bela-figge/
 - name: Georgia Policy Labs
   url: https://gpl.gsu.edu/
 
