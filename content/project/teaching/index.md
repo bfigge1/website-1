@@ -30,6 +30,10 @@ url_video: ""
 slides: ""
 ---
 
+#### Teaching Statement
+[Teaching Statement [PDF]](Figge_Teaching.pdf)<br/><br/>
+
+
 I taught Global Economics, an introductory course for non-majors, as principal instructor. 
 
 #### Student Comments
@@ -38,6 +42,3 @@ I taught Global Economics, an introductory course for non-majors, as principal i
 
 [Teaching Evaluation (1)[PDF]](Bfigge_GlobalEcon_Evals_1.pdf)<br/><br/>
 [Teaching Evaluation (2)[PDF]](Bfigge_GlobalEcon_Evals_2.pdf)<br/><br/>
-
-#### Teaching Statement
-[Teaching Statement [PDF]](Figge_Teaching.pdf)<br/><br/>
