@@ -67,7 +67,7 @@ highlight_name: true
 ---
 <br>
 
-I'm a 5th year Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs. I'm on the job market.
+I'm a fifth-year Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs. I'm on the job market.
 
 As an applied microeconomist, my interests span health, environmental, and education economics. 
 
