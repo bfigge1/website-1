@@ -67,10 +67,10 @@ highlight_name: true
 ---
 <br>
 
-I'm an Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs.
+I'm a 5th year Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs. I'm on the job market.
 
 As an applied microeconomist, my interests span health, environmental, and education economics. 
 
 In my job market paper I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
-I will be available for interviews at the 2022 ASSA Meeting in Boston and the 2021 European Job Market for Economists in Barcelona.
+I will be available for interviews at the 2022 ASSA Meeting and the 2021 European Job Market for Economists.
