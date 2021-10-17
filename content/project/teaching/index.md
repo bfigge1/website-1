@@ -34,7 +34,7 @@ slides: ""
 [Teaching Statement [PDF]](Figge_Teaching.pdf)<br/><br/>
 
 
-I taught Global Economics, an introductory course for non-majors, as principal instructor. 
+I taught The Global Economy, an introductory course for non-majors, as principal instructor. 
 
 #### Student Comments
 
