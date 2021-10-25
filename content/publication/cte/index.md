@@ -21,7 +21,7 @@ publishDate: "2021-09-01T00:00:00Z"
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["7"]
+publication_types: ["4"]
 
 # Publication name and optional abbreviated publication name.
 publication: ""
@@ -36,12 +36,12 @@ summary: Does passing a CTE technical assessment affect students’ probability 
 tags: []
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 # links:
-# - name: Custom Link
-#   url: http://example.org
+# - name: Full Report
+#   url: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
 
 url_pdf: ''
 url_code: ''
