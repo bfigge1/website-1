@@ -6,7 +6,6 @@ title: "School-Based Social-Emotional Learning Programs and K-12 Academic Achiev
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
-- Tim R. Sass
 
 # Author notes (optional)
 author_notes:
