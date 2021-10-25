@@ -40,8 +40,8 @@ featured: false
 
 # Custom links (uncomment lines below)
 # links:
-# - name: Full Report
-#   url: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
+ - name: Full Report
+   url: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
 
 url_pdf: ''
 url_code: ''
