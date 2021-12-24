@@ -73,4 +73,4 @@ As an applied microeconomist, my interests span health, environmental, and educa
 
 In my job market paper, I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
-I will be available for interviews at the 2022 ASSA Meeting and the 2021 European Job Market for Economists.
+I will be available for interviews at the 2022 ASSA Meeting.
