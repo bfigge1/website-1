@@ -67,7 +67,7 @@ highlight_name: true
 ---
 <br>
 
-I'm a recent PhD graduate from Georgia State University. I'm on the job market.
+I'm a recent PhD graduate from Georgia State University. 
 
 As an applied microeconomist, my interests span health, environmental, and education economics. 
 
