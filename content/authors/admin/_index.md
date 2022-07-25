@@ -29,7 +29,7 @@ education:
   courses:
   - course: PhD in Economics
     institution: Georgia State University
-    year: 2022 (expected)
+    year: 2022 
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
@@ -67,10 +67,10 @@ highlight_name: true
 ---
 <br>
 
-I'm a fifth-year Economics PhD candidate at Georgia State University and research assistant at Georgia Policy Labs. I'm on the job market.
+I'm a recent PhD graduate from Georgia State University. I'm on the job market.
 
 As an applied microeconomist, my interests span health, environmental, and education economics. 
 
 In my job market paper, I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
-I will be available for interviews at the 2022 ASSA Meeting.
+I will be available for interviews at the annual ASSA Meeting.
