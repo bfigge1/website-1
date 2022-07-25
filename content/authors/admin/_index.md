@@ -6,7 +6,7 @@ title: Béla Figge
 superuser: true
 
 # Role/position/tagline
-role: Doctoral Candidate in Economics
+role: PhD in Economics
 
 # Organizations/Affiliations to show in About widget
 organizations:
