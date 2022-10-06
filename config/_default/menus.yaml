@@ -14,7 +14,7 @@ main:
     url: 'project/teaching'
     weight: 66
   - name: CV
-    url: uploads/bfigge_2021_04.pdf
+    url: uploads/bfigge_cv.pdf
     weight: 74
   - name: Contact
     url: '#contact'
