@@ -11,11 +11,11 @@ authors:
 author_notes:
 - "Equal contribution"
 
-date: "2021-09-01T00:00:00Z"
+date: "2022-10-24T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2021-09-01T00:00:00Z"
+publishDate: "2022-10-24T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -44,7 +44,6 @@ featured: false
 #   url: https://www.lse.ac.uk/granthaminstitute/wp-content/uploads/2022/10/working-paper-380_Carattini-Figge-Gordan-Loeschel.pdf
 
 url_pdf:  https://www.cesifo.org/en/publications/2022/working-paper/municipal-building-codes-and-adoption-solar-photovoltaics
-url_pdf:  https://www.lse.ac.uk/granthaminstitute/publication/municipal-building-codes-and-the-adoption-of-solar-photovoltaics/
 url_code: ''
 url_dataset: ''
 url_poster: ''
