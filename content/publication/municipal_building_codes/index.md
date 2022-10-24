@@ -21,7 +21,7 @@ publishDate: "2021-09-01T00:00:00Z"
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["3"]
+publication_types: ["4"]
 
 # Publication name and optional abbreviated publication name.
 publication: ""
@@ -41,7 +41,7 @@ featured: true
 # Custom links (uncomment lines below)
 # links:
 # - name: Custom Link
-   url: https://www.lse.ac.uk/granthaminstitute/wp-content/uploads/2022/10/working-paper-380_Carattini-Figge-Gordan-Loeschel.pdf
+#   url: https://www.lse.ac.uk/granthaminstitute/wp-content/uploads/2022/10/working-paper-380_Carattini-Figge-Gordan-Loeschel.pdf
 
 url_pdf:  https://www.cesifo.org/en/publications/2022/working-paper/municipal-building-codes-and-adoption-solar-photovoltaics
 url_code: ''
