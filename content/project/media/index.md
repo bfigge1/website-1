@@ -1,8 +1,8 @@
 ---
-title: Teaching
-summary: Teaching Experience
+title: Media Coverage
+summary: Media coverage of my research
 tags:
-- Teaching
+- Media
 date: "2021-04-27T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
@@ -31,5 +31,5 @@ slides: ""
 ---
 
 #### Media Coverage
-[Frankfurter Allgemeine Zeitung (11/03/2022)](Figge_Teaching.pdf)<br/><br/>
+[Frankfurter Allgemeine Zeitung (11/03/2022)]("https://zeitung.faz.net/faz/immobilien/2022-11-04/5e50876497c641ffc6ff6a73aea3a417/?GEPC=s3")<br/><br/>
 
