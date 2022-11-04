@@ -30,15 +30,6 @@ url_video: ""
 slides: ""
 ---
 
-#### Teaching Statement
-[Teaching Statement [PDF]](Figge_Teaching.pdf)<br/><br/>
+#### Media Coverage
+[Frankfurter Allgemeine Zeitung (11/03/2022)](Figge_Teaching.pdf)<br/><br/>
 
-
-I taught The Global Economy, an introductory course for non-majors, as principal instructor. 
-
-#### Student Comments
-
-"He was the greatest professor I had this semester who understood students objectives and challenges during these times and his lessons were very well thought out! Very calm and went through each aspect of the lesson for enough time for people to look over, he also added a video lecture on top of the in-classroom lectures [...].""
-
-[Teaching Evaluation (1)[PDF]](Bfigge_GlobalEcon_Evals_1.pdf)<br/><br/>
-[Teaching Evaluation (2)[PDF]](Bfigge_GlobalEcon_Evals_2.pdf)<br/><br/>
