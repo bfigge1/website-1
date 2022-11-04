@@ -16,12 +16,9 @@ main:
   - name: CV
     url: uploads/bfigge_cv.pdf
     weight: 74
-  - name: Media
-    url: `project/media'
-    weight: 80
   - name: Contact
     url: '#contact'
-    weight: 86
+    weight: 80
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
