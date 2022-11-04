@@ -30,6 +30,6 @@ url_video: ""
 slides: ""
 ---
 
-#### Media Coverage
-[Frankfurter Allgemeine Zeitung (11/03/2022)]("https://zeitung.faz.net/faz/immobilien/2022-11-04/5e50876497c641ffc6ff6a73aea3a417/?GEPC=s3")<br/><br/>
+#### Municipal Building Codes and the Adoption of Solar Photovoltaics
+[Frankfurter Allgemeine Zeitung (11/03/2022)](link: https://zeitung.faz.net/faz/immobilien/2022-11-04/5e50876497c641ffc6ff6a73aea3a417/?GEPC=s3)<br/><br/>
 
