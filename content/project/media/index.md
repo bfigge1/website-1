@@ -32,5 +32,5 @@ slides: ""
 
 #### Municipal Building Codes and the Adoption of Solar Photovoltaics
 Frankfurter Allgemeine Zeitung (Nov. 8th, 2022)<br/>
-(<a href="https://zeitung.faz.net/faz/immobilien/2022-11-04/5e50876497c641ffc6ff6a73aea3a417/?GEPC=s3">So verhindern Gemeinden ein Solardach</a>)<br/>
+<a href="https://zeitung.faz.net/faz/immobilien/2022-11-04/5e50876497c641ffc6ff6a73aea3a417/?GEPC=s3">So verhindern Gemeinden ein Solardach</a><br/>
 
