@@ -13,12 +13,15 @@ main:
   - name: Teaching
     url: 'project/teaching'
     weight: 66
+  - name: Media
+    url: 'project/media'
+    weight: 74
   - name: CV
     url: uploads/bfigge_cv.pdf
-    weight: 74
+    weight: 80
   - name: Contact
     url: '#contact'
-    weight: 80
+    weight: 86
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
