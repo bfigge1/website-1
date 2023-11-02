@@ -12,8 +12,6 @@ role: PhD in Economics
 organizations:
 - name: Georgia State University
   url: https://aysps.gsu.edu/phd-student/bela-figge/
-- name: Georgia Policy Labs
-  url: https://gpl.gsu.edu/
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include health, environmental, and education economics
