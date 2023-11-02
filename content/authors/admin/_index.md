@@ -65,10 +65,10 @@ highlight_name: true
 ---
 <br>
 
-I'm a recent PhD graduate from Georgia State University. 
+I'm a recent PhD graduate from Georgia State University. I'm on the job market.
 
 As an applied microeconomist, my interests span health, environmental, and education economics. 
 
 In my job market paper, I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
-I'm on the job market and will be available for interviews at the annual ASSA Meeting.
+
