@@ -20,14 +20,14 @@ twitter: ''
 
 # Contact (edit or remove options as required)
 
-email: bfigge1@gsu.edu
-address:
-  street: 55 Park Place
-  city: Atlanta
-  region: GA
-  postcode: '30303'
-  country: United States
-  country_code: US
+email: bela.figge@gmail.com
+#address:
+ # street: 55 Park Place
+  #city: Atlanta
+  #region: GA
+  #postcode: '30303'
+  #country: United States
+  #country_code: US
 
 contact_links:
   - icon: twitter

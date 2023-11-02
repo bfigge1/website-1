@@ -11,7 +11,7 @@ role: PhD in Economics
 # Organizations/Affiliations to show in About widget
 organizations:
 - name: Georgia State University
-  url: https://aysps.gsu.edu/phd-student/bela-figge/
+  url: https://aysps.gsu.edu
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include health, environmental, and education economics
