@@ -71,4 +71,4 @@ As an applied microeconomist, my interests span health, environmental, and educa
 
 In my job market paper, I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
-I will be available for interviews at the annual ASSA Meeting.
+I'm on the job market and will be available for interviews at the annual ASSA Meeting.
