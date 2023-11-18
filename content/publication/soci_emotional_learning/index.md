@@ -1,38 +1,39 @@
 ---
-title: "The Role of Crisis Pregnancy Centers in Fertility Decisions"
+title: "School-Based Social-Emotional Learning Programs and K-12 Academic Achievement"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
+- sass
 
 # Author notes (optional)
 author_notes:
 - "Equal contribution"
 
-date: "2021-09-01T00:00:00Z"
+date: "2020-08-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2021-09-01T00:00:00Z"
+publishDate: "2020-08-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["7"]
+publication_types: ["4"]
 
 # Publication name and optional abbreviated publication name.
 publication: ""
 publication_short: ""
 
-abstract: The “pro-life” movement has sought to end the practice of abortion in the United States for the past 50 years. Crisis Pregnancy Centers (CPCs) are an integral part of this effort, and provide counseling services from an anti-abortion perspective. I study the location choice of CPCs and the impact of CPCs on fertility outcomes. CPCs lower the local abortion rate by 9.6 percent, with larger effects among teenagers and young women. I also show that the presence of CPCs leads to an increase in birth rates.
+abstract: There are hundreds of studies of the effects of social-emotional learning (SEL) programs, but only a small fraction of them provide causal evidence on the impacts of school-based “universal” (non- targeted) programs on student achievement.The most reliable studies of universal school-based SEL programs—those employing randomized controlled trials and large samples of students—showed positive effects of SEL on student achievement, on average, but there is substantial variation in the estimated impacts across studies. On average, SEL programs implemented in elementary schools tended to be more effective than those employed in secondary schools. However, impacts do not appear to vary consistently with the intensity of program delivery or with the economic status of the students a school serves. There are a variety of popular SEL programs, but the evidence base on the effects of any particular program on student outcomes is thin. The most frequently studied programs tend to garner mixed results.
+
 
 
 # Summary. An optional shortened abstract.
-summary: Crisis Pregnancy Centers provide abstinence education and counseling services from a “pro-life” (anti-abortion) perspective.
-
+summary: School-Based Social-Emotional Learning Programs and K-12 Academic Achievement.
 tags: []
 
 # Display this page in the Featured widget?
