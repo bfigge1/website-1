@@ -6,6 +6,8 @@ title: "Effect of Passing a CTE Technical Assessment on College Enrollment"
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
+- kreisman
+- villero
 
 # Author notes (optional)
 author_notes:

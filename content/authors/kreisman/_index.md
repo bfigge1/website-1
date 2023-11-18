@@ -1,12 +1,12 @@
 ---
 # Display name
-title: Tim R. Sass.
+title: Daniel Kreisman
 
 # Is this the primary user of the site?
 superuser: false
 
 # Role/position/tagline
-role: Professor
+role: Associate Professor
 
 # Organizations/Affiliations to show in About widget
 organizations:

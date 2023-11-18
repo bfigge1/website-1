@@ -14,7 +14,7 @@ organizations:
   url: https://aysps.gsu.edu
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include health, environmental, and education economics
+bio: My research interests include public, education, environmental, and health economics
 
 # Interests to show in About widget
 interests:
@@ -68,7 +68,7 @@ highlight_name: true
 
 I'm a recent PhD graduate from Georgia State University. I'm on the job market.
 
-As an applied microeconomist, my interests span health, environmental, and education economics. 
+As an applied microeconomist, my interests span public, education, environmental, and health economics. 
 
 In my job market paper, I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
 
