@@ -37,7 +37,7 @@ summary: The Lucy Calkins Programs in reading and writing have, at most, very sm
 tags: []
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 # links:
