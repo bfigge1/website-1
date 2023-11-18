@@ -48,7 +48,7 @@ url_pdf: figge_lc_policy_report
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: ''
+url_project: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 url_slides: ''
 url_source: ''
 url_video: ''

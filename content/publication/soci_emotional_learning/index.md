@@ -48,7 +48,7 @@ url_pdf: SEL_Literature Review_20200825.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: ''
+url_project: https://gpl.gsu.edu/publications/social-emotional-learning/
 url_slides: ''
 url_source: ''
 url_video: ''
