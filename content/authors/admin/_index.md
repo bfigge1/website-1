@@ -19,8 +19,9 @@ bio: My research interests include health, environmental, and education economic
 # Interests to show in About widget
 interests:
 - Public Economics
-- Environmental Economics
 - Education Economics
+- Environmental Economics
+- Health Economics
 
 # Education to show in About widget
 education:
