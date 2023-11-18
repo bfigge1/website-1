@@ -44,7 +44,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: ''
+url_pdf: SEL_Literature Review_20200825.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''

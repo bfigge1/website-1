@@ -44,7 +44,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: ''
+url_pdf: figge_lc_policy_report
 url_code: ''
 url_dataset: ''
 url_poster: ''
