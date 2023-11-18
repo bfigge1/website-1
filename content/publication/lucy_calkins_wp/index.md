@@ -1,11 +1,12 @@
 ---
-title: "The Role of Crisis Pregnancy Centers in Fertility Decisions"
+title: "Impact Evaluation of the Lucy Calkins Units of Study Program"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
+- sass
 
 # Author notes (optional)
 author_notes:
@@ -27,11 +28,11 @@ publication_types: ["3"]
 publication: ""
 publication_short: ""
 
-abstract: The “pro-life” movement has sought to end the practice of abortion in the United States for the past 50 years. Crisis Pregnancy Centers (CPCs) are an integral part of this effort, and provide counseling services from an anti-abortion perspective. I study the location choice of CPCs and the impact of CPCs on fertility outcomes. CPCs lower the local abortion rate by 9.6 percent, with larger effects among teenagers and young women. I also show that the presence of CPCs leads to an increase in birth rates.
+abstract: The Lucy Calkins Units of Study Program is a widely used program that consists of materials and methods for teaching reading and writing in Grades K–8. In a school district in metro Atlanta, the Lucy Calkins Programs in reading and writing have, at most, very small average effects on student achievement in ELA relative to the “business as usual” approach of using other reading and writing programs. 
 
 
 # Summary. An optional shortened abstract.
-summary: Crisis Pregnancy Centers provide abstinence education and counseling services from a “pro-life” (anti-abortion) perspective.
+summary: The Lucy Calkins Programs in reading and writing have, at most, very small average effects on student achievement in ELA relative to the “business as usual” approach of using other reading and writing programs. 
 
 tags: []
 
