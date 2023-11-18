@@ -41,8 +41,8 @@ featured: false
 
 # Custom links (uncomment lines below)
 # links:
-# - name: Custom Link
-#   url: http://example.org
+ name: Report
+ url: https://gpl.gsu.edu/publications/social-emotional-learning/
 
 url_pdf: SEL_Literature Review_20200825.pdf
 url_code: ''

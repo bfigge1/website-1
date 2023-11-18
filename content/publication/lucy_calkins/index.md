@@ -41,8 +41,8 @@ featured: false
 
 # Custom links (uncomment lines below)
 # links:
-# - name: Custom Link
-#   url: http://example.org
+name: Report
+  url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 
 url_pdf: figge_lc_policy_report
 url_code: ''
