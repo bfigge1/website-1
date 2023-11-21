@@ -12,11 +12,11 @@ authors:
 author_notes:
 - "Equal contribution"
 
-date: "2021-09-01T00:00:00Z"
+date: "2023-09-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2021-09-01T00:00:00Z"
+publishDate: "2023-09-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -44,7 +44,7 @@ featured: false
 # name: Full Report
 #  url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 
-url_pdf: 
+url_pdf: figge_lc_policy_report.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
