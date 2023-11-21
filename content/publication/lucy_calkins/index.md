@@ -1,5 +1,5 @@
 ---
-title: "Effect of Passing a CTE Technical Assessment on College Enrollment"
+title: "Impact Evaluation of the Lucy Calkins Units of Study Program"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
@@ -31,7 +31,6 @@ publication_short: ""
 
 abstract: The Lucy Calkins Units of Study Program is a widely used program that consists of materials and methods for teaching reading and writing in Grades K–8. In a school district in metro Atlanta, the Lucy Calkins Programs in reading and writing have, at most, very small average effects on student achievement in ELA relative to the “business as usual” approach of using other reading and writing programs. 
 
-
 # Summary. An optional shortened abstract.
 summary: The Lucy Calkins Programs in reading and writing have, at most, very small average effects on student achievement in ELA relative to the “business as usual” approach of using other reading and writing programs. 
 
@@ -43,9 +42,9 @@ featured: false
 # Custom links (uncomment lines below)
 # links: Full Report
 # - name: Full Report
-#   url: 
+#   url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 
-url_pdf: ''
+url_pdf: CTAE Technical Assessments_Report_20210818.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
