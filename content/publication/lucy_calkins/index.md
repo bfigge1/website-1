@@ -1,12 +1,13 @@
 ---
-title: "Impact Evaluation of the Lucy Calkins Units of Study Program"
+title: "Effect of Passing a CTE Technical Assessment on College Enrollment"
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here 
 # and it will be replaced with their full name and linked to their profile.
 authors:
 - admin
-- sass
+- kreisman
+- villero
 
 # Author notes (optional)
 author_notes:
@@ -40,11 +41,11 @@ tags: []
 featured: false
 
 # Custom links (uncomment lines below)
-# links:
-# name: Full Report
-#  url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
+# links: Full Report
+# - name: Full Report
+#   url: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
 
-url_pdf: figge_lc_policy_report.pdf
+url_pdf: CTAE Technical Assessments_Report_20210818.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
