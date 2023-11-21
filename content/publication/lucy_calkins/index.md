@@ -44,7 +44,7 @@ featured: false
 name: Report
   url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 
-url_pdf: figge_lc_policy_report
+url_pdf: figge_lc_policy_report.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
