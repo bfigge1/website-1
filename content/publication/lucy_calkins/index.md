@@ -41,10 +41,10 @@ featured: false
 
 # Custom links (uncomment lines below)
 # links:
-name: Report
-  url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
+# name: Full Report
+#  url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 
-url_pdf: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
+url_pdf: 
 url_code: ''
 url_dataset: ''
 url_poster: ''
