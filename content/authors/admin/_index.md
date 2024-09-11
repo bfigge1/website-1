@@ -6,7 +6,7 @@ title: Béla Figge
 superuser: true
 
 # Role/position/tagline
-role: PhD in Economics
+role: Ph.D. in Economics
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -14,19 +14,16 @@ organizations:
   url: https://aysps.gsu.edu
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include public, education, environmental, and health economics
 
 # Interests to show in About widget
 interests:
-- Public Economics
-- Education Economics
-- Environmental Economics
-- Health Economics
+- Applied Microeconomics.
+- Causal Inference
 
 # Education to show in About widget
 education:
   courses:
-  - course: PhD in Economics
+  - course: Ph.D. in Economics
     institution: Georgia State University
     year: 2022 
 
@@ -68,8 +65,8 @@ highlight_name: true
 
 I'm a recent PhD graduate from Georgia State University. I'm on the job market.
 
-As an applied microeconomist, my interests span public, education, environmental, and health economics. 
+As an applied microeconomist, I am interested in policy evaluation and causal inference.
 
-In my job market paper, I study Crisis Pregnancy Centers and how they shape fertility outcomes. 
+In my job market paper, I study crisis pregnancy centers and how they shape fertility outcomes. 
 
 
