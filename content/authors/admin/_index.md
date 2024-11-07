@@ -17,7 +17,7 @@ organizations:
 
 # Interests to show in About widget
 interests:
-- Applied Microeconomics
+- Applied Microeconomics.
 - Causal Inference
 
 # Education to show in About widget
