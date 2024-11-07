@@ -11,11 +11,11 @@ authors:
 author_notes:
 - "Equal contribution"
 
-date: "2023-11-01T00:00:00Z"
+date: "2024-11-01T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2023-11-01T00:00:00Z"
+publishDate: "2024-11-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -27,7 +27,12 @@ publication_types: ["7"]
 publication: ""
 publication_short: ""
 
-abstract: The “pro-life” movement has sought to end the practice of abortion in the United States for the past 50 years. Crisis Pregnancy Centers (CPCs) are an integral part of this effort, and provide counseling services from an anti-abortion perspective. I study the location choice of CPCs and the impact of CPCs on fertility outcomes. CPCs lower the local abortion rate by 9.6 percent, with larger effects among teenagers and young women. I also show that the presence of CPCs leads to an increase in birth rates.
+abstract: For the past 50 years, the “pro-life” movement has sought to end the practice of
+abortion in the United States. Crisis pregnancy centers (CPCs) are an integral part of
+this effort and provide counseling services from an anti-abortion perspective. I study
+the location choice of CPCs and their impact on fertility outcomes. CPCs lower the
+local abortion rate by 10.0 percent, with larger effects observed among teenagers and
+young women. I also show that the presence of CPCs leads to an increase in birth rates.
 
 
 # Summary. An optional shortened abstract.
