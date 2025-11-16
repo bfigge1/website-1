@@ -44,7 +44,7 @@ featured: false
 # - name: Full Report
 #   url: https://www.dropbox.com/scl/fi/1slx0jp0j3hj30xn7c9xj/Carattini-Davis-and-Heimerdinger-2025.pdf
 
-url_pdf: https://www.belafigge.com/publication/Carattini_Davis_Figge_and_Heimerdinger_2025.pdf
+url_pdf: https://www.belafigge.com/publication/solar_mandates/Carattini_Davis_Figge_and_Heimerdinger_2025.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
