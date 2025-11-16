@@ -62,11 +62,10 @@ email: "bela.figge@gmail.com"
 highlight_name: true
 ---
 <br>
+I am an applied microeconomist who recently received my PhD in Economics from Georgia State University. I am on the 2025-26 academic job market.
 
-I'm a recent PhD graduate from Georgia State University. I'm on the job market.
+My research examines how decentralized implementation affects policy outcomes. In my job market paper, I estimate that crisis pregnancy centers reduce abortion rates by 18 percent, with effects concentrated among teenagers. 
 
-As an applied microeconomist, I am interested in policy evaluation and causal inference.
-
-In my job market paper, I study crisis pregnancy centers and how they shape fertility outcomes. 
+In published and working papers with coauthors, I study how municipal building codes affect solar energy adoption in Germany and California.
 
 
