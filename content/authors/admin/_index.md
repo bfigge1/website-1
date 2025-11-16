@@ -64,6 +64,7 @@ highlight_name: true
 <br>
 I am an applied microeconomist who recently received my PhD in Economics from Georgia State University. I am on the 2025-26 academic job market. <br>
 
+
 My research examines how decentralized implementation affects policy outcomes. In my job market paper, I estimate that crisis pregnancy centers reduce abortion rates by 18 percent, with effects concentrated among teenagers. <br>
 
 In published and working papers with coauthors, I study how municipal building codes affect solar energy adoption in Germany and California.
