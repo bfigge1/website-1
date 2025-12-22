@@ -48,7 +48,7 @@ url_pdf: https://www.belafigge.com/publication/solar_mandates/Carattini_Davis_Fi
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: https://www.dropbox.com/scl/fi/1slx0jp0j3hj30xn7c9xj/Carattini-Davis-and-Heimerdinger-2025.pdf
+url_project: https://www.ifo.de/DocDL/cesifo1_wp12359.pdf
 url_slides: ''
 url_source: ''
 url_video: ''
