@@ -60,7 +60,7 @@ highlight_name: true
 
 I am an applied microeconomist on the 2025–26 academic job market. I received my PhD in Economics from Georgia State University in 2022.
 
-My research examines how decentralized policy implementation shapes outcomes — focusing on the local actors, organizations, and regulations that determine whether broader policy goals are achieved or undermined.
+My research examines how decentralized policy implementation shapes outcomes — focusing on the local actors and governments that determine whether broader policy goals are achieved or undermined.
 
 My job market paper provides the first causal estimates of how crisis pregnancy centers (CPCs) affect fertility outcomes. Using a 30-year county panel from North and South Carolina and a new simulation-based instrumental variables approach, I find that CPCs reduce local abortion rates by 8 to 18 percent, with the largest effects among teenagers and young women.
 

@@ -27,7 +27,7 @@ publication_types: ["7"]
 publication: ""
 publication_short: ""
 
-abstract: This paper provides the first causal estimates of how Crisis Pregnancy Centers (CPCs) affect fertility. CPCs counsel pregnant women toward carrying to term and operate more than 2,500 locations nationwide, outnumbering abortion clinics roughly three to one. I develop a simulated instruments strategy that addresses endogenous CPC placement by constructing counterfactual expansion paths from a hazard model of organizational entry. 2SLS estimates show that CPCs reduce log abortion rates by $0.081$ to $0.180$ across the age distribution. Monte Carlo experiments with synthetic data and known treatment effects confirm that the simulated instrument recovers the true causal parameter under severe designed endogeneity.
+abstract: This paper provides the first causal estimates of how Crisis Pregnancy Centers (CPCs) affect fertility. CPCs counsel pregnant women toward carrying to term and operate more than 2,500 locations nationwide, outnumbering abortion clinics roughly three to one. I develop a simulated instruments strategy that addresses endogenous CPC placement by constructing counterfactual expansion paths from a hazard model of organizational entry. 2SLS estimates show that CPCs reduce log abortion rates by 8% to 18% across the age distribution. Monte Carlo experiments with synthetic data and known treatment effects confirm that the simulated instrument recovers the true causal parameter under severe designed endogeneity.
 
 
 
