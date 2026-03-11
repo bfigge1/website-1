@@ -19,8 +19,10 @@ image:
   caption: "CPC and abortion provider locations across the Carolinas"
   focal_point: ""
   placement: 2
-  preview_only: false
+  preview_only: true
 ---
+
+{{< include-html "leaflet_map.html" >}}
 
 In 1990, there were 62 crisis pregnancy centers (CPCs) in North and South Carolina. By the late 2010s, that number had grown to over 150. During the same period, the number of abortion providers barely moved, hovering between 18 and 26.
 
@@ -35,8 +37,6 @@ Despite their prevalence, there was essentially no causal evidence on whether CP
 ## The expansion, decade by decade
 
 Use the slider below to scrub through time, or hit Play to watch CPCs (pink circles) and abortion providers (blue triangles) appear and disappear across North and South Carolina from 1975 to 2020. Click any marker for details.
-
-{{< include-html "leaflet_map.html" >}}
 
 A few patterns stand out.
 
