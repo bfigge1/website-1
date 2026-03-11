@@ -9,7 +9,7 @@ active: true
 headless: true
 
 # Order that this section appears on the page.
-weight: 60
+weight: 62
 
 title: Writing
 subtitle:
