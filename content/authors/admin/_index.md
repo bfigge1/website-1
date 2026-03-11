@@ -36,7 +36,7 @@ social:
   icon_pack: fas
   link: '/#contact'
 - icon: twitter
-  icon_pack: ai
+  icon_pack: fab
   link: https://twitter.com/BelaFigge
 - icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
   icon_pack: fas
@@ -48,12 +48,9 @@ social:
   icon_pack: fab
   link: https://www.linkedin.com/in/bela-figge/
 
-# Link to a PDF of your resume/CV.
-# To use: copy your resume to `static/uploads/bfigge_cv.pdf`, enable `ai` icons in `params.toml`, 
-# and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: uploads/bfigge_cv.pdf
+- icon: cv
+  icon_pack: ai
+  link: uploads/bfigge_cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "bela.figge@gmail.com"

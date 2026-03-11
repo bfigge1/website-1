@@ -1,0 +1,7 @@
+{{ $file := .Get 0 }}
+{{ with .Page.Resources.GetMatch $file }}
+  {{ .Content | safeHTML }}
+{{ else }}
+  {{ $path := printf "content/%s%s" $.Page.File.Dir $file }}
+  {{ readFile $path | safeHTML }}
+{{ end }}

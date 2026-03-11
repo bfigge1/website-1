@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPC Expansion in the Carolinas</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fafafa; }
+  #map { width: 100%; height: 520px; border-radius: 8px; border: 1px solid #e0e0e0; }
+  .controls {
+    padding: 16px 0;
+    max-width: 100%;
+  }
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .slider-container label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    min-width: 50px;
+  }
+  #yearSlider {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ddd;
+    border-radius: 3px;
+    outline: none;
+  }
+  #yearSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2b4c7e;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  #yearDisplay {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2b4c7e;
+    min-width: 60px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .counts {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    color: #555;
+  }
+  .counts .cpc-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .counts .clinic-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot-cpc {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(192, 112, 112, 0.8);
+    border: 1px solid rgba(192, 112, 112, 1);
+  }
+  .dot-clinic {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 12px solid rgba(43, 76, 126, 0.9);
+  }
+  .play-btn {
+    background: #2b4c7e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .play-btn:hover { background: #1d3557; }
+  .play-btn.playing { background: #8b2323; }
+  .ratio-bar {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+  }
+  .ratio-bar .bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .ratio-bar .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <div class="slider-container">
+    <button class="play-btn" id="playBtn" onclick="togglePlay()">&#9654; Play</button>
+    <input type="range" id="yearSlider" min="1975" max="2020" value="1990" step="1">
+    <span id="yearDisplay">1990</span>
+  </div>
+  <div class="counts">
+    <div class="cpc-count"><span class="dot-cpc"></span> CPCs open: <strong id="cpcCount">0</strong></div>
+    <div class="clinic-count"><span class="dot-clinic"></span> Abortion providers: <strong id="clinicCount">0</strong></div>
+  </div>
+  <div class="ratio-bar">
+    <span id="ratioText">Ratio: 0 CPCs per provider</span>
+    <div class="bar-bg">
+      <div class="bar-fill" id="ratioBar" style="width: 0%; background: linear-gradient(90deg, rgba(43,76,126,0.7), rgba(192,112,112,0.8));"></div>
+    </div>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const cpcData = [{"lat": 32.221, "lng": -80.704, "name": "Pregnancy Center and Clinic of Low Country A1", "county": "Beaufort County", "state": "SC", "open": 1990, "close": null}, {"lat": 32.236, "lng": -80.805, "name": "Pregnancy Center and Clinic of Low Country A2", "county": "Beaufort County", "state": "SC", "open": 2020, "close": null}, {"lat": 32.379, "lng": -80.723, "name": "Beaufort Women's Ctr A3", "county": "Beaufort County", "state": "SC", "open": 2012, "close": null}, {"lat": 32.415, "lng": -80.689, "name": "Beaufort Women's Ctr A1", "county": "Beaufort County", "state": "SC", "open": 1986, "close": 2005}, {"lat": 32.796, "lng": -79.994, "name": "Dazz A1", "county": "Charleston County", "state": "SC", "open": 2011, "close": null}, {"lat": 32.803, "lng": -79.954, "name": "Florence Crittenton", "county": "Charleston County", "state": "SC", "open": 1945, "close": null}, {"lat": 32.9, "lng": -80.003, "name": "Alpha Outreach Ministries A2", "county": "Charleston County", "state": "SC", "open": 2012, "close": null}, {"lat": 32.933, "lng": -80.056, "name": "Low Country Crisis Pregnancy A1", "county": "Charleston County", "state": "SC", "open": 1988, "close": 2007}, {"lat": 32.938, "lng": -80.051, "name": "Low Country Crisis Pregnancy B1", "county": "Dorchester County", "state": "SC", "open": 2007, "close": null}, {"lat": 33.02, "lng": -80.125, "name": "Alpha Outreach Ministries A1", "county": "Berkeley County", "state": "SC", "open": 1993, "close": 2012}, {"lat": 33.099, "lng": -80.309, "name": "Healing Hurts", "county": "Dorchester County", "state": "SC", "open": 2016, "close": null}, {"lat": 33.374, "lng": -79.297, "name": "Birthright of Georgetown", "county": "Georgetown County", "state": "SC", "open": 2002, "close": null}, {"lat": 33.394, "lng": -80.347, "name": "A Place For Zoe", "county": "Orangeburg County", "state": "SC", "open": 1998, "close": null}, {"lat": 33.451, "lng": -79.562, "name": "First Choice Women's Resource", "county": "Georgetown County", "state": "SC", "open": 2007, "close": 2017}, {"lat": 33.501, "lng": -81.905, "name": "Life Choices Pregnancy Care Center", "county": "Aiken County", "state": "SC", "open": 2010, "close": 2016}, {"lat": 33.508, "lng": -80.854, "name": "Dazz B1", "county": "Orangeburg County", "state": "SC", "open": 2013, "close": null}, {"lat": 33.524, "lng": -81.726, "name": "Aiken Pregnancy Care Ctr A3", "county": "Aiken County", "state": "SC", "open": 2008, "close": 2018}, {"lat": 33.56, "lng": -81.725, "name": "Aiken Pregnancy Care Ctr A1", "county": "Aiken County", "state": "SC", "open": 1994, "close": 2003}, {"lat": 33.562, "lng": -81.72, "name": "Aiken Pregnancy Care Ctr A2", "county": "Aiken County", "state": "SC", "open": 2003, "close": 2008}, {"lat": 33.719, "lng": -78.939, "name": "Coastline Women's Center A2", "county": "Horry County", "state": "SC", "open": 2017, "close": null}, {"lat": 33.728, "lng": -78.863, "name": "Bethany Christian Services C2", "county": "Horry County", "state": "SC", "open": 2006, "close": null}, {"lat": 33.731, "lng": -78.863, "name": "Bethany Christian Services C1", "county": "Horry County", "state": "SC", "open": 2006, "close": 2008}, {"lat": 33.838, "lng": -79.058, "name": "Coastline Women's Center A1", "county": "Horry County", "state": "SC", "open": 2014, "close": null}, {"lat": 33.882, "lng": -78.616, "name": "Coastline Women's Center A3", "county": "Horry County", "state": "SC", "open": 2019, "close": null}, {"lat": 33.912, "lng": -80.338, "name": "Sumter Child Advocacy Center", "county": "Sumter County", "state": "SC", "open": 2007, "close": null}, {"lat": 33.918, "lng": -80.363, "name": "Sumter Pregnancy Center A3", "county": "Sumter County", "state": "SC", "open": 2017, "close": null}, {"lat": 33.923, "lng": -80.34, "name": "Sumter Pregnancy Center A1", "county": "Sumter County", "state": "SC", "open": 1996, "close": 2014}, {"lat": 33.934, "lng": -80.368, "name": "Sumter Pregnancy Center A2", "county": "Sumter County", "state": "SC", "open": 2014, "close": 2017}, {"lat": 33.94, "lng": -81.33, "name": "House Of Hope", "county": "Lexington County", "state": "SC", "open": 2018, "close": null}, {"lat": 33.992, "lng": -81.235, "name": "Daybreak Lifecare Center A2", "county": "Richland County", "state": "SC", "open": 2012, "close": 2016}, {"lat": 33.993, "lng": -81.056, "name": "Bethany Christian Services D1", "county": "Lexington County", "state": "SC", "open": 2000, "close": 2018}, {"lat": 33.998, "lng": -81.011, "name": "Birthright Of Columbia C1", "county": "Richland County", "state": "SC", "open": 1980, "close": 2008}, {"lat": 34.007, "lng": -81.025, "name": "South Carolina Citizens Life / Bethany Christian Services", "county": "Richland County", "state": "SC", "open": 1987, "close": null}, {"lat": 34.007, "lng": -81.024, "name": "Birthright of Columbia C2", "county": "Richland County", "state": "SC", "open": 2008, "close": 2018}, {"lat": 34.008, "lng": -81.032, "name": "Bethany Christian Services A1", "county": "Richland County", "state": "SC", "open": 1986, "close": null}, {"lat": 34.009, "lng": -81.021, "name": "Daybreak Lifecare Center A1", "county": "Richland County", "state": "SC", "open": 1989, "close": 2016}, {"lat": 34.011, "lng": -81.035, "name": "Birthright of Columbia C3", "county": "Richland County", "state": "SC", "open": 2018, "close": null}, {"lat": 34.014, "lng": -81.001, "name": "Daybreak Lifecare Center A3", "county": "Richland County", "state": "SC", "open": 2017, "close": null}, {"lat": 34.178, "lng": -82.154, "name": "Cross Roads Pregnancy Ctr A1", "county": "Greenwood County", "state": "SC", "open": 1988, "close": 2006}, {"lat": 34.189, "lng": -79.769, "name": "A Choice 2 M8K Crisis Pregnancy Care Ctr A3", "county": "Florence County", "state": "SC", "open": 2019, "close": null}, {"lat": 34.195, "lng": -79.788, "name": "A Choice 2 M8K Crisis Pregnancy Care Ctr A2", "county": "Florence County", "state": "SC", "open": 2011, "close": 2019}, {"lat": 34.201, "lng": -82.16, "name": "Cross Roads Pregnancy Ctr A4", "county": "Greenwood County", "state": "SC", "open": 2019, "close": null}, {"lat": 34.203, "lng": -82.154, "name": "Cross Roads Pregnancy Ctr A2", "county": "Greenwood County", "state": "SC", "open": 2006, "close": 2013}, {"lat": 34.207, "lng": -82.175, "name": "Cross Roads Pregnancy Ctr A3", "county": "Greenwood County", "state": "SC", "open": 2013, "close": 2019}, {"lat": 34.21, "lng": -82.143, "name": "A Place for Us Ministries", "county": "Greenwood County", "state": "SC", "open": 2001, "close": null}, {"lat": 34.216, "lng": -79.802, "name": "A Choice 2 M8K Crisis Pregnancy Care Ctr A1", "county": "Florence County", "state": "SC", "open": 2009, "close": 2011}, {"lat": 34.218, "lng": -77.886, "name": "Life Line Crisis Pregnancy Ctr A1", "county": "New Hanover County", "state": "NC", "open": 1985, "close": 2009}, {"lat": 34.222, "lng": -77.884, "name": "Life Line Crisis Pregnancy Ctr A2", "county": "New Hanover County", "state": "NC", "open": 2009, "close": null}, {"lat": 34.248, "lng": -80.606, "name": "Midland Women's Center", "county": "Kershaw County", "state": "SC", "open": 1998, "close": 2018}, {"lat": 34.275, "lng": -81.616, "name": "Lifebridge A2", "county": "Newberry County", "state": "SC", "open": 2015, "close": null}, {"lat": 34.277, "lng": -81.616, "name": "Lifebridge A1", "county": "Newberry County", "state": "SC", "open": 2012, "close": 2015}, {"lat": 34.336, "lng": -78.709, "name": "Living Hope Pregnancy Support Services", "county": "Columbus County", "state": "NC", "open": 1990, "close": null}, {"lat": 34.502, "lng": -82.654, "name": "Anderson Pregnancy Care A1", "county": "Anderson County", "state": "SC", "open": 1992, "close": 2019}, {"lat": 34.512, "lng": -82.649, "name": "Anderson Pregnancy Care A2", "county": "Anderson County", "state": "SC", "open": 2002, "close": null}, {"lat": 34.513, "lng": -82.654, "name": "Anderson Pregnancy Care A3", "county": "Anderson County", "state": "SC", "open": 2019, "close": null}, {"lat": 34.678, "lng": -82.953, "name": "Foothills Pregnancy Care Center A1", "county": "Oconee County", "state": "SC", "open": 1990, "close": 1998}, {"lat": 34.685, "lng": -82.952, "name": "Foothills Pregnancy Care Center A5", "county": "Oconee County", "state": "SC", "open": 2016, "close": null}, {"lat": 34.689, "lng": -82.835, "name": "Birthright of Clemson B", "county": "Pickens County", "state": "SC", "open": 2007, "close": 2017}, {"lat": 34.704, "lng": -82.989, "name": "Foothills Pregnancy Care Center A3", "county": "Oconee County", "state": "SC", "open": 2011, "close": 2014}, {"lat": 34.711, "lng": -80.765, "name": "Women's Enrichment Center", "county": "Lancaster County", "state": "SC", "open": 1998, "close": null}, {"lat": 34.714, "lng": -83.0, "name": "Foothills Pregnancy Care Center A4", "county": "Oconee County", "state": "SC", "open": 2014, "close": 2016}, {"lat": 34.715, "lng": -81.623, "name": "Union County Pregnancy Center", "county": "Union County", "state": "SC", "open": 1998, "close": null}, {"lat": 34.721, "lng": -76.717, "name": "Coastal Pregnancy Care Ctr A1", "county": "Carteret County", "state": "NC", "open": 1986, "close": 2004}, {"lat": 34.736, "lng": -76.799, "name": "Coastal Pregnancy Care Ctr A2", "county": "Carteret County", "state": "NC", "open": 2004, "close": 2020}, {"lat": 34.769, "lng": -77.386, "name": "Onslow Pregnancy Resource Center A1", "county": "Onslow County", "state": "NC", "open": 2009, "close": 2016}, {"lat": 34.779, "lng": -82.303, "name": "Birthright Of Greenville D1", "county": "Greenville County", "state": "SC", "open": 1981, "close": 2018}, {"lat": 34.791, "lng": -77.417, "name": "Onslow Pregnancy Resource Center A2", "county": "Onslow County", "state": "NC", "open": 2016, "close": null}, {"lat": 34.808, "lng": -82.421, "name": "Piedmont Women's Center B2", "county": "Greenville County", "state": "SC", "open": 1992, "close": null}, {"lat": 34.841, "lng": -82.643, "name": "Hope Women's Center", "county": "Pickens County", "state": "SC", "open": 1993, "close": null}, {"lat": 34.844, "lng": -82.365, "name": "Birthright Of Greenville D2", "county": "Greenville County", "state": "SC", "open": 2018, "close": null}, {"lat": 34.849, "lng": -82.389, "name": "Bethany Christian Services E1", "county": "Greenville County", "state": "SC", "open": 1981, "close": null}, {"lat": 34.849, "lng": -82.374, "name": "Piedmont Women's Center B1", "county": "Greenville County", "state": "SC", "open": 1993, "close": 2013}, {"lat": 34.864, "lng": -76.897, "name": "Coastal Pregnancy Care Ctr B1", "county": "Craven County", "state": "NC", "open": 1990, "close": 2004}, {"lat": 34.865, "lng": -76.898, "name": "Havelock Pregnancy Resource Center", "county": "Craven County", "state": "NC", "open": 2011, "close": null}, {"lat": 34.873, "lng": -82.369, "name": "Nightlight Christian Adoptions", "county": "Greenville County", "state": "SC", "open": 1959, "close": null}, {"lat": 34.93, "lng": -81.026, "name": "Life House", "county": "York County", "state": "SC", "open": 2018, "close": null}, {"lat": 34.934, "lng": -81.022, "name": "Palmetto Women's Center B2", "county": "York County", "state": "SC", "open": 2008, "close": null}, {"lat": 34.935, "lng": -81.02, "name": "Palmetto Women's Center B1", "county": "York County", "state": "SC", "open": 1997, "close": null}, {"lat": 34.94, "lng": -79.772, "name": "Pee Dee Pregnancy Resource Center", "county": "Richmond County", "state": "NC", "open": 2011, "close": 2019}, {"lat": 34.942, "lng": -82.059, "name": "Christian Adoption Services D1", "county": "Spartanburg County", "state": "SC", "open": 2020, "close": null}, {"lat": 34.945, "lng": -82.223, "name": "Piedmont Women's Center A1", "county": "Greenville County", "state": "SC", "open": 1992, "close": 2005}, {"lat": 34.946, "lng": -82.214, "name": "Piedmont Women's Center A2", "county": "Greenville County", "state": "SC", "open": 2005, "close": null}, {"lat": 34.95, "lng": -80.064, "name": "HOPE Pregnancy Resource Center", "county": "Anson County", "state": "NC", "open": 2014, "close": null}, {"lat": 34.973, "lng": -81.024, "name": "Christian Adoption Services F2", "county": "York County", "state": "SC", "open": 2018, "close": null}, {"lat": 34.976, "lng": -79.224, "name": "Alpha Life Pregnancy Center", "county": "Hoke County", "state": "NC", "open": 2017, "close": null}, {"lat": 34.977, "lng": -81.949, "name": "Carolina Pregnancy Center A1", "county": "Spartanburg County", "state": "SC", "open": 1985, "close": null}, {"lat": 35.001, "lng": -80.554, "name": "H.E.L.P. Crisis Pregnancy Center", "county": "Union County", "state": "NC", "open": 1994, "close": null}, {"lat": 35.016, "lng": -80.967, "name": "Project Gabriel Fort Mill", "county": "York County", "state": "SC", "open": 1995, "close": null}, {"lat": 35.022, "lng": -80.961, "name": "Palmetto Pregnancy Center A2", "county": "York County", "state": "SC", "open": 2012, "close": 2018}, {"lat": 35.045, "lng": -78.864, "name": "Agape Pregnancy Support Services", "county": "Cumberland County", "state": "NC", "open": 2000, "close": null}, {"lat": 35.052, "lng": -81.008, "name": "Christian Adoption Services F1", "county": "York County", "state": "SC", "open": 1999, "close": 2009}, {"lat": 35.06, "lng": -81.673, "name": "Cherokee Pregnancy Center A4", "county": "Cherokee County", "state": "SC", "open": 2016, "close": null}, {"lat": 35.065, "lng": -78.877, "name": "Catholic Social Ministries", "county": "Cumberland County", "state": "NC", "open": 1981, "close": null}, {"lat": 35.071, "lng": -81.65, "name": "Cherokee Pregnancy Center A1", "county": "Cherokee County", "state": "SC", "open": 2008, "close": 2013}, {"lat": 35.072, "lng": -81.651, "name": "Cherokee Pregnancy Center A3", "county": "Cherokee County", "state": "SC", "open": 2004, "close": 2008}, {"lat": 35.076, "lng": -78.881, "name": "AAA Crisis Pregnancy Center", "county": "Cumberland County", "state": "NC", "open": 1980, "close": null}, {"lat": 35.087, "lng": -80.86, "name": "Caleb Ministries Inc", "county": "Mecklenburg County", "state": "NC", "open": 1993, "close": null}, {"lat": 35.088, "lng": -81.638, "name": "Cherokee Pregnancy Center A2", "county": "Cherokee County", "state": "SC", "open": 2013, "close": 2016}, {"lat": 35.089, "lng": -84.035, "name": "Woman's Enrichment Center A2", "county": "Cherokee County", "state": "NC", "open": 2010, "close": null}, {"lat": 35.09, "lng": -81.097, "name": "Palmetto Pregnancy Center A1", "county": "York County", "state": "SC", "open": 2003, "close": 2018}, {"lat": 35.106, "lng": -80.634, "name": "Christian Adoption Services E1", "county": "Union County", "state": "NC", "open": 2020, "close": null}, {"lat": 35.106, "lng": -77.042, "name": "Eastern Pregnancy Info Clinic A1", "county": "Craven County", "state": "NC", "open": 1988, "close": 1998}, {"lat": 35.112, "lng": -80.729, "name": "Lois' Lodge A1", "county": "Mecklenburg County", "state": "NC", "open": 1999, "close": 2006}, {"lat": 35.112, "lng": -77.068, "name": "Eastern Pregnancy Info Clinic A2", "county": "Craven County", "state": "NC", "open": 1988, "close": 2012}, {"lat": 35.115, "lng": -77.093, "name": "Eastern Pregnancy Info Clinic C1", "county": "Craven County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.117, "lng": -80.711, "name": "Christian Adoption Services B1", "county": "Mecklenburg County", "state": "NC", "open": 1991, "close": 2020}, {"lat": 35.118, "lng": -77.078, "name": "Eastern Pregnancy Info Clinic A3", "county": "Craven County", "state": "NC", "open": 1992, "close": 2016}, {"lat": 35.181, "lng": -83.388, "name": "Smokey Mountain Pregnancy Care A1", "county": "Macon County", "state": "NC", "open": 2001, "close": 2003}, {"lat": 35.181, "lng": -83.38, "name": "Smokey Mountain Pregnancy Care A2", "county": "Macon County", "state": "NC", "open": 2003, "close": null}, {"lat": 35.183, "lng": -80.903, "name": "Bethany Christian Services H1", "county": "Mecklenburg County", "state": "NC", "open": 1990, "close": null}, {"lat": 35.19, "lng": -80.873, "name": "MiraVia", "county": "Mecklenburg County", "state": "NC", "open": 1994, "close": null}, {"lat": 35.197, "lng": -80.847, "name": "Lois' Lodge A2", "county": "Mecklenburg County", "state": "NC", "open": 2006, "close": 2019}, {"lat": 35.199, "lng": -81.171, "name": "CPC Gaston", "county": "Gaston County", "state": "NC", "open": 2007, "close": null}, {"lat": 35.199, "lng": -80.838, "name": "Florence Crittenton ", "county": "Mecklenburg County", "state": "NC", "open": 1941, "close": null}, {"lat": 35.201, "lng": -83.838, "name": "Woman's Enrichment Center  A1", "county": "Cherokee County", "state": "NC", "open": 2009, "close": null}, {"lat": 35.208, "lng": -81.165, "name": "Crisis Pregnancy Ctr A1", "county": "Gaston County", "state": "NC", "open": 1997, "close": 2007}, {"lat": 35.208, "lng": -80.838, "name": "Pregnancy Resource Center of Charlotte A1", "county": "Mecklenburg County", "state": "NC", "open": 1983, "close": 2005}, {"lat": 35.213, "lng": -80.828, "name": "Pregnancy Resource Center of Charlotte A3", "county": "Mecklenburg County", "state": "NC", "open": 2005, "close": null}, {"lat": 35.22, "lng": -80.854, "name": "Catholic Social Ministries", "county": "Mecklenburg County", "state": "NC", "open": 1962, "close": null}, {"lat": 35.232, "lng": -82.732, "name": "The Center for Women", "county": "Transylvania County", "state": "NC", "open": 1994, "close": null}, {"lat": 35.252, "lng": -81.507, "name": "Pregnancy Resource Center of Cleveland County A2", "county": "Cleveland County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.261, "lng": -77.581, "name": "Eastern Pregnancy Info Clinic B1", "county": "Lenoir County", "state": "NC", "open": 1998, "close": 2012}, {"lat": 35.262, "lng": -77.581, "name": "Eastern Pregnancy Info Clinic B3", "county": "Lenoir County", "state": "NC", "open": 2017, "close": null}, {"lat": 35.263, "lng": -77.579, "name": "Young Women's Outreach Ctr", "county": "Lenoir County", "state": "NC", "open": 1994, "close": 2016}, {"lat": 35.265, "lng": -80.847, "name": "Angel of Hope House", "county": "Mecklenburg County", "state": "NC", "open": 2008, "close": null}, {"lat": 35.27, "lng": -81.035, "name": "Crisis Pregnancy East A2", "county": "Gaston County", "state": "NC", "open": 2009, "close": null}, {"lat": 35.284, "lng": -80.793, "name": "Pregnancy Resource Center of Charlotte A2", "county": "Mecklenburg County", "state": "NC", "open": 1983, "close": 2008}, {"lat": 35.289, "lng": -81.54, "name": "Pregnancy Resource Center of Cleveland County A1", "county": "Cleveland County", "state": "NC", "open": 1988, "close": 2016}, {"lat": 35.291, "lng": -81.216, "name": "Crisis Pregnancy West A3", "county": "Gaston County", "state": "NC", "open": 2012, "close": null}, {"lat": 35.292, "lng": -77.586, "name": "Eastern Pregnancy Info Clinic B2", "county": "Lenoir County", "state": "NC", "open": 1998, "close": 2017}, {"lat": 35.297, "lng": -82.452, "name": "Mercy House", "county": "Henderson County", "state": "NC", "open": 1993, "close": 2013}, {"lat": 35.306, "lng": -83.19, "name": "Smoky Mountain Pregnancy Care B1", "county": "Jackson County", "state": "NC", "open": 2013, "close": 2020}, {"lat": 35.306, "lng": -81.188, "name": "Crisis Pregnancy North A4", "county": "Gaston County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.315, "lng": -82.462, "name": "Open Arms Pregnancy Center A1", "county": "Henderson County", "state": "NC", "open": 2000, "close": 2013}, {"lat": 35.316, "lng": -83.179, "name": "Smoky Mountain Pregnancy Care C1", "county": "Swain County", "state": "NC", "open": 2020, "close": null}, {"lat": 35.316, "lng": -82.462, "name": "Open Arms Pregnancy Center A2", "county": "Henderson County", "state": "NC", "open": 2013, "close": 2017}, {"lat": 35.321, "lng": -80.659, "name": "Gate Pregnancy Resource Ctr A1", "county": "Cabarrus County", "state": "NC", "open": 2006, "close": 2013}, {"lat": 35.324, "lng": -80.638, "name": "Gate Pregnancy Resource Ctr A2", "county": "Cabarrus County", "state": "NC", "open": 2013, "close": null}, {"lat": 35.328, "lng": -79.397, "name": "Life Care Pregnancy Center B2", "county": "Moore County", "state": "NC", "open": 2010, "close": 2020}, {"lat": 35.333, "lng": -81.886, "name": "Hands of Hope for Life, Inc. A4", "county": "Rutherford County", "state": "NC", "open": 2019, "close": 2021}, {"lat": 35.334, "lng": -81.863, "name": "Hands of Hope for Life, Inc. A3", "county": "Rutherford County", "state": "NC", "open": 2009, "close": null}, {"lat": 35.336, "lng": -81.321, "name": "Crisis Pregnancy Northwest A5", "county": "Gaston County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.345, "lng": -79.416, "name": "Life Care Pregnancy Center B1", "county": "Moore County", "state": "NC", "open": 1995, "close": 2010}, {"lat": 35.349, "lng": -80.207, "name": "Pregnancy Resource Ctr of Stanly Cty A2", "county": "Stanly County", "state": "NC", "open": 2011, "close": null}, {"lat": 35.351, "lng": -80.196, "name": "Pregnancy Resource Ctr of Stanly Cty A1", "county": "Stanly County", "state": "NC", "open": 1989, "close": 2011}, {"lat": 35.352, "lng": -82.503, "name": "Open Arms Pregnancy Center A3", "county": "Henderson County", "state": "NC", "open": 2017, "close": null}, {"lat": 35.364, "lng": -77.939, "name": "Wayne Pregnancy Center", "county": "Wayne County", "state": "NC", "open": 2002, "close": null}, {"lat": 35.366, "lng": -81.957, "name": "Hands of Hope for Life, Inc. A2", "county": "Rutherford County", "state": "NC", "open": 2008, "close": 2009}, {"lat": 35.369, "lng": -81.956, "name": "Hands of Hope for Life, Inc. A1", "county": "Rutherford County", "state": "NC", "open": 1995, "close": 2008}, {"lat": 35.375, "lng": -80.726, "name": "Cities4Life", "county": "Cabarrus County", "state": "NC", "open": 2011, "close": null}, {"lat": 35.398, "lng": -80.612, "name": "Gate Pregnancy Resource Ctr A4", "county": "Cabarrus County", "state": "NC", "open": 2018, "close": null}, {"lat": 35.41, "lng": -80.578, "name": "Cabarrus Women's Center A1", "county": "Cabarrus County", "state": "NC", "open": 1985, "close": 2000}, {"lat": 35.419, "lng": -78.935, "name": "Harnett Pregnancy Care Ctr A2", "county": "Harnett County", "state": "NC", "open": 2007, "close": null}, {"lat": 35.422, "lng": -80.601, "name": "Cabarrus Women's Center A2", "county": "Cabarrus County", "state": "NC", "open": 2005, "close": null}, {"lat": 35.422, "lng": -78.73, "name": "Harnett Pregnancy Care Ctr A1", "county": "Harnett County", "state": "NC", "open": 1998, "close": null}, {"lat": 35.433, "lng": -80.631, "name": "Gate Pregnancy Resource Ctr A3 ", "county": "Cabarrus County", "state": "NC", "open": 2016, "close": 2018}, {"lat": 35.452, "lng": -82.525, "name": "Bethany Christian Services B1", "county": "Buncombe County", "state": "NC", "open": 1998, "close": 2018}, {"lat": 35.455, "lng": -80.992, "name": "East Lincoln Pregnancy Counsel A2", "county": "Lincoln County", "state": "NC", "open": 2007, "close": 2010}, {"lat": 35.467, "lng": -81.236, "name": "CPC of Lincoln County A4", "county": "Lincoln County", "state": "NC", "open": 2017, "close": null}, {"lat": 35.473, "lng": -81.249, "name": "CPC of Lincoln County A1", "county": "Lincoln County", "state": "NC", "open": 2002, "close": 2005}, {"lat": 35.473, "lng": -81.246, "name": "CPC of Lincoln County A2", "county": "Lincoln County", "state": "NC", "open": 2005, "close": 2008}, {"lat": 35.478, "lng": -79.182, "name": "Reach Out Crisis Pregnancy Center A1", "county": "Lee County", "state": "NC", "open": 1997, "close": null}, {"lat": 35.484, "lng": -80.615, "name": "Family Promise-Cabarrus County", "county": "Cabarrus County", "state": "NC", "open": 2004, "close": 2010}, {"lat": 35.486, "lng": -79.184, "name": "Reach Out Crisis Pregnancy Center A2", "county": "Lee County", "state": "NC", "open": 2011, "close": 2018}, {"lat": 35.49, "lng": -82.989, "name": "Haywood Pro Life", "county": "Haywood County", "state": "NC", "open": 1999, "close": 2014}, {"lat": 35.497, "lng": -82.978, "name": "Hope in Waynesville, Inc.", "county": "Haywood County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.512, "lng": -81.252, "name": "CPC of Lincoln County A3", "county": "Lincoln County", "state": "NC", "open": 2008, "close": 2017}, {"lat": 35.515, "lng": -78.321, "name": "In His Hands Pregnancy Support Center", "county": "Johnston County", "state": "NC", "open": 2007, "close": null}, {"lat": 35.516, "lng": -81.003, "name": "East Lincoln Pregnancy Counsel A1", "county": "Lincoln County", "state": "NC", "open": 2000, "close": 2007}, {"lat": 35.539, "lng": -81.044, "name": "East Lincoln Pregnancy Counsel A3", "county": "Lincoln County", "state": "NC", "open": 2010, "close": 2020}, {"lat": 35.542, "lng": -77.055, "name": "Coastal Pregnancy Center A1", "county": "Beaufort County", "state": "NC", "open": 1986, "close": 2010}, {"lat": 35.546, "lng": -77.03, "name": "Coastal Pregnancy Center A3", "county": "Beaufort County", "state": "NC", "open": 2013, "close": null}, {"lat": 35.547, "lng": -77.041, "name": "Coastal Pregnancy Center A2", "county": "Beaufort County", "state": "NC", "open": 2010, "close": 2013}, {"lat": 35.558, "lng": -79.276, "name": "Reach Out Crisis Pregnancy Center B1", "county": "Chatham County", "state": "NC", "open": 1997, "close": 2016}, {"lat": 35.561, "lng": -81.063, "name": "Heartbeats Women's Center", "county": "", "state": "NC", "open": 2020, "close": null}, {"lat": 35.565, "lng": -82.54, "name": "Bethany Christian Services G1", "county": "Buncombe County", "state": "NC", "open": 1984, "close": 2008}, {"lat": 35.57, "lng": -82.624, "name": "Mountain Area Pregnancy Services", "county": "Buncombe County", "state": "NC", "open": 2013, "close": null}, {"lat": 35.575, "lng": -80.821, "name": "Community Pregnancy Center of Lake Norman 1", "county": "Iredell County", "state": "NC", "open": 1987, "close": null}, {"lat": 35.581, "lng": -82.601, "name": "Asheville Pregnancy Support", "county": "Buncombe County", "state": "NC", "open": 1994, "close": 2013}, {"lat": 35.583, "lng": -78.8, "name": "Hand of Hope Pregnancy Resource Center A2", "county": "Wake County", "state": "NC", "open": 2003, "close": 2010}, {"lat": 35.59, "lng": -78.793, "name": "Hand of Hope Pregnancy Resource Center A3", "county": "Wake County", "state": "NC", "open": 2010, "close": null}, {"lat": 35.603, "lng": -77.413, "name": "Carolina Pregnancy Center B2", "county": "Pitt County", "state": "NC", "open": 2003, "close": 2008}, {"lat": 35.604, "lng": -77.372, "name": "Carolina Pregnancy Center B3", "county": "Pitt County", "state": "NC", "open": 2003, "close": null}, {"lat": 35.609, "lng": -82.472, "name": "Life Advocates", "county": "Buncombe County", "state": "NC", "open": 1990, "close": 2010}, {"lat": 35.613, "lng": -77.372, "name": "Carolina Pregnancy Center B1", "county": "Pitt County", "state": "NC", "open": 1985, "close": 2003}, {"lat": 35.641, "lng": -78.473, "name": "Ichoose Pregnancy Support Svc", "county": "Johnston County", "state": "NC", "open": 2012, "close": null}, {"lat": 35.651, "lng": -78.457, "name": "New Hope Crisis Pregnancy Center", "county": "Johnston County", "state": "NC", "open": 2002, "close": 2012}, {"lat": 35.66, "lng": -80.479, "name": "Rowan County Pregnancy Counseling Center A2", "county": "Rowan County", "state": "NC", "open": 2007, "close": null}, {"lat": 35.666, "lng": -81.98, "name": "McDowell Pregnancy Care Center A2", "county": "McDowell County", "state": "NC", "open": 2010, "close": 2016}, {"lat": 35.667, "lng": -80.47, "name": "Rowan County Pregnancy Counseling Center A1", "county": "Rowan County", "state": "NC", "open": 1983, "close": 2007}, {"lat": 35.683, "lng": -82.008, "name": "McDowell Pregnancy Care Center A3", "county": "McDowell County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.69, "lng": -81.993, "name": "McDowell Pregnancy Care Center A1", "county": "McDowell County", "state": "NC", "open": 2004, "close": 2010}, {"lat": 35.69, "lng": -79.815, "name": "Your Choices Randolph A2", "county": "Randolph County", "state": "NC", "open": 2018, "close": null}, {"lat": 35.7, "lng": -79.813, "name": "Your Choices Randolph A1", "county": "Randolph County", "state": "NC", "open": 1997, "close": 2018}, {"lat": 35.726, "lng": -81.344, "name": "Women's Resource Center A1", "county": "Catawba County", "state": "NC", "open": 1988, "close": 2010}, {"lat": 35.728, "lng": -77.952, "name": "Wilson Pregnancy Ctr A2", "county": "Wilson County", "state": "NC", "open": 2010, "close": 2018}, {"lat": 35.731, "lng": -81.345, "name": "Pregnancy Care Center of Catawba Valley A2", "county": "Catawba County", "state": "NC", "open": 2004, "close": null}, {"lat": 35.732, "lng": -77.918, "name": "Choices Women's Center ", "county": "Wilson County", "state": "NC", "open": 1986, "close": null}, {"lat": 35.733, "lng": -81.334, "name": "Women's Resource Center A2", "county": "Catawba County", "state": "NC", "open": 2010, "close": null}, {"lat": 35.733, "lng": -77.918, "name": "Wilson Pregnancy Ctr A1", "county": "Wilson County", "state": "NC", "open": 1986, "close": 2010}, {"lat": 35.735, "lng": -81.338, "name": "Pregnancy Care Center of Catawba Valley A1", "county": "Catawba County", "state": "NC", "open": 1988, "close": 2004}, {"lat": 35.746, "lng": -78.754, "name": "Project Rachel", "county": "Wake County", "state": "NC", "open": 1994, "close": null}, {"lat": 35.749, "lng": -81.684, "name": "Pregnancy Care Ctr A1", "county": "Burke County", "state": "NC", "open": 2010, "close": 2015}, {"lat": 35.755, "lng": -81.605, "name": "Pregnancy Care Ctr A3", "county": "Burke County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.756, "lng": -78.728, "name": "Hand of Hope Pregnancy Resource Center A4", "county": "Wake County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.764, "lng": -78.725, "name": "Amazing Grace Adoptions A1", "county": "Wake County", "state": "NC", "open": 1999, "close": 2011}, {"lat": 35.774, "lng": -78.64, "name": "A Child's Hope", "county": "Wake County", "state": "NC", "open": 1998, "close": null}, {"lat": 35.777, "lng": -80.889, "name": "Pregnancy Resource Ctr A1", "county": "Iredell County", "state": "NC", "open": 1990, "close": 2004}, {"lat": 35.783, "lng": -78.656, "name": "Gateway A2", "county": "Wake County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.786, "lng": -80.886, "name": "Pregnancy Resource Ctr A2", "county": "Iredell County", "state": "NC", "open": 2004, "close": 2015}, {"lat": 35.789, "lng": -78.662, "name": "Birth Choice A1", "county": "Wake County", "state": "NC", "open": 1974, "close": 2000}, {"lat": 35.79, "lng": -78.662, "name": "Bethany Christian Services F1", "county": "Wake County", "state": "NC", "open": 1990, "close": 2006}, {"lat": 35.797, "lng": -78.496, "name": "Ichoose Pregnancy Support Svc", "county": "Wake County", "state": "NC", "open": 2017, "close": null}, {"lat": 35.799, "lng": -80.865, "name": "Pregnancy Resource Ctr A3", "county": "Iredell County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.814, "lng": -78.695, "name": "Birth Choice A3", "county": "Wake County", "state": "NC", "open": 2014, "close": null}, {"lat": 35.819, "lng": -80.286, "name": "Meadowview Pregnancy Care Center", "county": "Davidson County", "state": "NC", "open": 1974, "close": null}, {"lat": 35.821, "lng": -80.253, "name": "Alpha Pregnancy Support A2", "county": "Davidson County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.826, "lng": -80.251, "name": "Alpha Pregnancy Support A1", "county": "Davidson County", "state": "NC", "open": 1991, "close": 2015}, {"lat": 35.827, "lng": -78.621, "name": "Bethany Christian Services F3", "county": "Wake County", "state": "NC", "open": 2008, "close": null}, {"lat": 35.828, "lng": -82.547, "name": "Abiding Hope ", "county": "Madison County", "state": "NC", "open": 2019, "close": null}, {"lat": 35.828, "lng": -78.623, "name": "Life Care Pregnancy Care Center A1", "county": "Wake County", "state": "NC", "open": 1984, "close": 2011}, {"lat": 35.829, "lng": -78.631, "name": "Birth Choice A2", "county": "Wake County", "state": "NC", "open": 2000, "close": 2014}, {"lat": 35.829, "lng": -78.629, "name": "Bethany Christian Services F2", "county": "Wake County", "state": "NC", "open": 1998, "close": 2016}, {"lat": 35.841, "lng": -78.578, "name": "Women's Care Clinic of Raleigh", "county": "Wake County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.854, "lng": -78.677, "name": "Christian Life Home", "county": "Wake County", "state": "NC", "open": 1988, "close": null}, {"lat": 35.857, "lng": -78.705, "name": "Gateway A1", "county": "Wake County", "state": "NC", "open": 2011, "close": 2015}, {"lat": 35.876, "lng": -80.097, "name": "Christian Adoption Services A1", "county": "Davidson County", "state": "NC", "open": 2017, "close": null}, {"lat": 35.888, "lng": -81.525, "name": "Caldwell Pregnancy Care Center", "county": "Caldwell County", "state": "NC", "open": 1990, "close": 2019}, {"lat": 35.894, "lng": -80.56, "name": "Davie Pregnancy Care Center A1", "county": "Davie County", "state": "NC", "open": 2000, "close": null}, {"lat": 35.906, "lng": -78.658, "name": "Amazing Grace Adoptions A2", "county": "Wake County", "state": "NC", "open": 2011, "close": null}, {"lat": 35.914, "lng": -81.541, "name": "Caldwell Council On Adolescent", "county": "Caldwell County", "state": "NC", "open": 1990, "close": null}, {"lat": 35.915, "lng": -82.266, "name": "Tri-County Pregnancy Center", "county": "Yancey County", "state": "NC", "open": 1995, "close": null}, {"lat": 35.917, "lng": -80.595, "name": "Davie Pregnancy Care Center A2", "county": "Davie County", "state": "NC", "open": 2003, "close": null}, {"lat": 35.919, "lng": -81.182, "name": "Caring Hearts Pregnancy Ctr A2", "county": "Alexander County", "state": "NC", "open": 2012, "close": null}, {"lat": 35.922, "lng": -81.179, "name": "Caring Hearts Pregnancy Ctr A1", "county": "Alexander County", "state": "NC", "open": 2005, "close": 2012}, {"lat": 35.928, "lng": -79.033, "name": "Pregnancy Support Services A1", "county": "Orange County", "state": "NC", "open": 1986, "close": 2013}, {"lat": 35.943, "lng": -77.8, "name": "Pregnancy Care Ctr", "county": "Nash County", "state": "NC", "open": 1989, "close": null}, {"lat": 35.943, "lng": -75.617, "name": "Creative Choices Crisis Preg A2", "county": "Dare County", "state": "NC", "open": 2013, "close": null}, {"lat": 35.945, "lng": -79.013, "name": "Pregnancy Support Services A2", "county": "Orange County", "state": "NC", "open": 2013, "close": null}, {"lat": 35.957, "lng": -80.011, "name": "New Life Family Outreach A1", "county": "Guilford County", "state": "NC", "open": 1987, "close": null}, {"lat": 35.959, "lng": -80.015, "name": "New Life Family Outreach A2", "county": "Guilford County", "state": "NC", "open": 2017, "close": null}, {"lat": 35.96, "lng": -78.956, "name": "Pregnancy Support Services B3", "county": "Durham County", "state": "NC", "open": 2010, "close": null}, {"lat": 35.961, "lng": -77.825, "name": "Christian Adoption Services C1", "county": "Nash County", "state": "NC", "open": 2006, "close": 2016}, {"lat": 35.964, "lng": -78.963, "name": "Pregnancy Support Services B1", "county": "Durham County", "state": "NC", "open": 1986, "close": 2010}, {"lat": 35.964, "lng": -78.961, "name": "Pregnancy Support Services B2", "county": "Durham County", "state": "NC", "open": 1986, "close": null}, {"lat": 35.965, "lng": -77.849, "name": "Christian Adoption Services C2", "county": "Nash County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.967, "lng": -78.941, "name": "Pregnancy Support Services B4", "county": "Durham County", "state": "NC", "open": 2019, "close": null}, {"lat": 35.978, "lng": -78.537, "name": "Pregnancy Support Services A2", "county": "Wake County", "state": "NC", "open": 2009, "close": 2015}, {"lat": 35.979, "lng": -78.543, "name": "Pregnancy Support Services A1", "county": "Wake County", "state": "NC", "open": 2000, "close": 2009}, {"lat": 36.044, "lng": -75.68, "name": "Creative Choices Crisis Preg A1", "county": "Dare County", "state": "NC", "open": 1986, "close": 2013}, {"lat": 36.064, "lng": -81.921, "name": "Avery Pregnancy & Resource Center", "county": "Avery County", "state": "NC", "open": 2014, "close": null}, {"lat": 36.064, "lng": -79.799, "name": "Greensboro Pregnancy Care Center A2", "county": "Guilford County", "state": "NC", "open": 2017, "close": null}, {"lat": 36.064, "lng": -79.4, "name": "A Heart's Cry", "county": "Alamance County", "state": "NC", "open": 2007, "close": null}, {"lat": 36.072, "lng": -80.312, "name": "Salem Pregnancy Support A2", "county": "Forsyth County", "state": "NC", "open": 2007, "close": null}, {"lat": 36.074, "lng": -80.314, "name": "Birthright A1", "county": "Forsyth County", "state": "NC", "open": 1981, "close": 2003}, {"lat": 36.074, "lng": -80.312, "name": "Birthright A2", "county": "Forsyth County", "state": "NC", "open": 2014, "close": null}, {"lat": 36.078, "lng": -80.29, "name": "Not Forgotten Ministries", "county": "Forsyth County", "state": "NC", "open": 2019, "close": null}, {"lat": 36.082, "lng": -80.299, "name": "Salem Pregnancy Support A1", "county": "Forsyth County", "state": "NC", "open": 1981, "close": 2006}, {"lat": 36.085, "lng": -79.789, "name": "Greensboro Pregnancy Care Center A1", "county": "Guilford County", "state": "NC", "open": 1985, "close": 2017}, {"lat": 36.092, "lng": -79.41, "name": "Alamance Pregnancy Ctr", "county": "Alamance County", "state": "NC", "open": 1997, "close": null}, {"lat": 36.095, "lng": -80.25, "name": "Catholic Social Ministries", "county": "Forsyth County", "state": "NC", "open": 1948, "close": null}, {"lat": 36.133, "lng": -81.145, "name": "Wilkes Crisis Pregnancy Ctr A1", "county": "Wilkes County", "state": "NC", "open": 1993, "close": 2004}, {"lat": 36.133, "lng": -80.664, "name": "Compassion Care Center", "county": "Yadkin County", "state": "NC", "open": 1999, "close": null}, {"lat": 36.137, "lng": -81.177, "name": "Wilkes Crisis Pregnancy Ctr A2", "county": "Wilkes County", "state": "NC", "open": 2004, "close": 2020}, {"lat": 36.161, "lng": -81.145, "name": "Wilkes Pregnancy Care Center A3", "county": "Wilkes County", "state": "NC", "open": 2020, "close": null}, {"lat": 36.2, "lng": -81.655, "name": "Hope Pregnancy Resource Center A1", "county": "Watauga County", "state": "NC", "open": 1989, "close": 2011}, {"lat": 36.218, "lng": -81.685, "name": "Hope Pregnancy Resource Center A2", "county": "Watauga County", "state": "NC", "open": 2011, "close": null}, {"lat": 36.262, "lng": -80.826, "name": "LifeLine Pregnancy Help Center", "county": "Surry County", "state": "NC", "open": 1997, "close": 2019}, {"lat": 36.273, "lng": -80.382, "name": "Hope Pregnancy Care Ctr A1", "county": "Stokes County", "state": "NC", "open": 1990, "close": null}, {"lat": 36.275, "lng": -80.843, "name": "Life Line Pregnancy Help Ctr B1", "county": "Surry County", "state": "NC", "open": 2019, "close": null}, {"lat": 36.278, "lng": -80.349, "name": "Hope Pregnancy Care Ctr A2", "county": "Stokes County", "state": "NC", "open": 1990, "close": null}, {"lat": 36.285, "lng": -76.988, "name": "Family Resource Center of Ahoskie", "county": "Hertford County", "state": "NC", "open": 2007, "close": null}, {"lat": 36.286, "lng": -76.242, "name": "Albemarle Pregnancy Resource Center A3", "county": "Pasquotank County", "state": "NC", "open": 2017, "close": null}, {"lat": 36.296, "lng": -76.223, "name": "Albemarle Pregnancy Resource Center A2", "county": "Pasquotank County", "state": "NC", "open": 2012, "close": 2017}, {"lat": 36.308, "lng": -76.228, "name": "Albemarle Pregnancy Resource Center A1", "county": "Pasquotank County", "state": "NC", "open": 1989, "close": 2012}, {"lat": 36.39, "lng": -79.004, "name": "Life Choices", "county": "Person County", "state": "NC", "open": 2000, "close": null}, {"lat": 36.417, "lng": -81.475, "name": "Ashe Pregnancy Care Ctr A2", "county": "Ashe County", "state": "NC", "open": 2013, "close": null}, {"lat": 36.421, "lng": -81.474, "name": "Ashe Pregnancy Care Center A1", "county": "Ashe County", "state": "NC", "open": 1995, "close": 2013}, {"lat": 36.451, "lng": -77.646, "name": "Pregnancy Support Center A1", "county": "Halifax County", "state": "NC", "open": 2002, "close": 2018}, {"lat": 36.455, "lng": -77.657, "name": "Pregnancy Support Center A2", "county": "Halifax County", "state": "NC", "open": 2018, "close": null}, {"lat": 36.49, "lng": -79.753, "name": "Rockingham Pregnancy Care Center", "county": "Rockingham County", "state": "NC", "open": 2002, "close": null}, {"lat": 36.498, "lng": -80.621, "name": "The Legacy Center", "county": "Surry County", "state": "NC", "open": 2015, "close": null}, {"lat": 36.5, "lng": -80.605, "name": "Life Line Pregnancy Help Ctr A1", "county": "Surry County", "state": "NC", "open": 2011, "close": 2015}, {"lat": 36.502, "lng": -81.118, "name": "Alleghany Pregnancy Care Center", "county": "Alleghany County", "state": "NC", "open": 2006, "close": 2018}];
+const clinicData = [{"lat": 32.214, "lng": -80.73, "name": "Hilton Head", "county": "Beaufort County", "state": "SC", "open": 1989, "close": 2001}, {"lat": 32.407, "lng": -80.658, "name": "Beaufort", "county": "Beaufort County", "state": "SC", "open": 1990, "close": 2001}, {"lat": 32.789, "lng": -79.946, "name": "Charleston", "county": "Charleston County", "state": "SC", "open": 2008, "close": 2018}, {"lat": 32.797, "lng": -79.999, "name": "Charleston", "county": "Charleston County", "state": "SC", "open": 2018, "close": null}, {"lat": 34.015, "lng": -81.003, "name": "Columbia", "county": "Richland County", "state": "SC", "open": 1994, "close": null}, {"lat": 34.209, "lng": -77.927, "name": "Wilmington", "county": "New Hanover County", "state": "NC", "open": 2006, "close": null}, {"lat": 34.242, "lng": -77.896, "name": "Wilmington", "county": "New Hanover County", "state": "NC", "open": 1991, "close": 2006}, {"lat": 34.766, "lng": -77.386, "name": "Jacksonville", "county": "Onslow County", "state": "NC", "open": 1987, "close": 2016}, {"lat": 34.808, "lng": -82.421, "name": "Greenville", "county": "Greenville County", "state": "SC", "open": 1976, "close": null}, {"lat": 34.849, "lng": -82.373, "name": "Greenville", "county": "Greenville County", "state": "SC", "open": 1989, "close": 2001}, {"lat": 35.023, "lng": -78.894, "name": "Fayetteville", "county": "Cumberland County", "state": "NC", "open": 1973, "close": null}, {"lat": 35.079, "lng": -78.959, "name": "Fayetteville", "county": "Cumberland County", "state": "NC", "open": 2008, "close": null}, {"lat": 35.125, "lng": -80.88, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 1984, "close": null}, {"lat": 35.176, "lng": -80.797, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 1991, "close": 2001}, {"lat": 35.189, "lng": -80.805, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 1989, "close": null}, {"lat": 35.197, "lng": -80.802, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 1994, "close": null}, {"lat": 35.199, "lng": -80.766, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 2004, "close": 2019}, {"lat": 35.207, "lng": -80.838, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 1992, "close": 1999}, {"lat": 35.208, "lng": -80.835, "name": "Charlotte", "county": "Mecklenburg County", "state": "NC", "open": 2019, "close": null}, {"lat": 35.575, "lng": -82.547, "name": "Asheville", "county": "Buncombe County", "state": "NC", "open": 2002, "close": 2015}, {"lat": 35.578, "lng": -82.553, "name": "Asheville", "county": "Buncombe County", "state": "NC", "open": 1982, "close": 1997}, {"lat": 35.582, "lng": -82.553, "name": "Asheville", "county": "Buncombe County", "state": "NC", "open": 2015, "close": null}, {"lat": 35.601, "lng": -82.55, "name": "Asheville", "county": "Buncombe County", "state": "NC", "open": 1985, "close": 2014}, {"lat": 35.759, "lng": -78.729, "name": "Raleigh", "county": "Wake County", "state": "NC", "open": 2007, "close": null}, {"lat": 35.779, "lng": -78.649, "name": "Raleigh", "county": "Wake County", "state": "NC", "open": 1992, "close": null}, {"lat": 35.814, "lng": -78.694, "name": "Raleigh", "county": "Wake County", "state": "NC", "open": 1981, "close": null}, {"lat": 35.829, "lng": -78.634, "name": "Raleigh", "county": "Wake County", "state": "NC", "open": 1989, "close": 2010}, {"lat": 35.905, "lng": -79.051, "name": "Chapel Hill", "county": "Orange County", "state": "NC", "open": 1989, "close": null}, {"lat": 35.93, "lng": -79.029, "name": "Chapel Hill", "county": "Orange County", "state": "NC", "open": 1979, "close": 2018}, {"lat": 35.934, "lng": -79.027, "name": "Chapel Hill", "county": "Orange County", "state": "NC", "open": 1984, "close": 1998}, {"lat": 35.944, "lng": -79.014, "name": "Chapel Hill", "county": "Orange County", "state": "NC", "open": 2016, "close": null}, {"lat": 35.952, "lng": -79.006, "name": "Chapel Hill", "county": "Orange County", "state": "NC", "open": 1984, "close": 2017}, {"lat": 35.959, "lng": -80.01, "name": "High Point", "county": "Guilford County", "state": "NC", "open": 1996, "close": 2007}, {"lat": 35.965, "lng": -80.013, "name": "High Point", "county": "Guilford County", "state": "NC", "open": 1979, "close": 2017}, {"lat": 36.011, "lng": -78.919, "name": "Durham", "county": "Durham County", "state": "NC", "open": 1991, "close": 2007}, {"lat": 36.036, "lng": -79.799, "name": "Greensboro", "county": "Guilford County", "state": "NC", "open": 2013, "close": null}, {"lat": 36.039, "lng": -78.904, "name": "Durham", "county": "Durham County", "state": "NC", "open": 1990, "close": 2013}, {"lat": 36.04, "lng": -78.9, "name": "Durham", "county": "Durham County", "state": "NC", "open": 2007, "close": null}, {"lat": 36.043, "lng": -78.901, "name": "Durham", "county": "Durham County", "state": "NC", "open": 1995, "close": null}, {"lat": 36.066, "lng": -79.862, "name": "Greensboro", "county": "Guilford County", "state": "NC", "open": 1973, "close": 2013}, {"lat": 36.067, "lng": -79.793, "name": "Greensboro", "county": "Guilford County", "state": "NC", "open": 1984, "close": 1993}, {"lat": 36.079, "lng": -80.293, "name": "Winston Salem", "county": "Forsyth County", "state": "NC", "open": 2003, "close": null}, {"lat": 36.091, "lng": -79.812, "name": "Greensboro", "county": "Guilford County", "state": "NC", "open": 1993, "close": null}, {"lat": 36.095, "lng": -80.256, "name": "Winston-Salem", "county": "Forsyth County", "state": "NC", "open": 1991, "close": 1993}, {"lat": 36.097, "lng": -80.254, "name": "Winston-Salem", "county": "Forsyth County", "state": "NC", "open": 1984, "close": 2004}, {"lat": 36.099, "lng": -80.23, "name": "Winston-Salem", "county": "Forsyth County", "state": "NC", "open": 2002, "close": null}];
+
+// Initialize map centered on NC/SC
+const map = L.map('map', {
+  zoomControl: true,
+  scrollWheelZoom: true,
+}).setView([34.8, -80.0], 7);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+// Layer groups
+let cpcMarkers = L.layerGroup().addTo(map);
+let clinicMarkers = L.layerGroup().addTo(map);
+
+function isOpen(item, year) {
+  if (item.open === null || item.open > year) return false;
+  if (item.close !== null && item.close < year) return false;
+  return true;
+}
+
+function updateMap(year) {
+  cpcMarkers.clearLayers();
+  clinicMarkers.clearLayers();
+
+  let cpcCount = 0;
+  let clinicCount = 0;
+
+  // Add CPCs
+  cpcData.forEach(d => {
+    if (isOpen(d, year)) {
+      cpcCount++;
+      const marker = L.circleMarker([d.lat, d.lng], {
+        radius: 6,
+        fillColor: 'rgba(192, 112, 112, 0.75)',
+        color: 'rgba(160, 80, 80, 0.9)',
+        weight: 1,
+        fillOpacity: 0.75,
+      });
+      marker.bindPopup(
+        '<strong>' + d.name + '</strong><br>' +
+        d.county + ', ' + d.state + '<br>' +
+        'Opened: ' + d.open + (d.close ? '<br>Closed: ' + d.close : '')
+      );
+      cpcMarkers.addLayer(marker);
+    }
+  });
+
+  // Add clinics (abortion providers) - larger, triangular appearance via DivIcon
+  clinicData.forEach(d => {
+    if (isOpen(d, year)) {
+      clinicCount++;
+      const marker = L.marker([d.lat, d.lng], {
+        icon: L.divIcon({
+          className: '',
+          html: '<div style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:14px solid rgba(43,76,126,0.9);filter:drop-shadow(0 1px 1px rgba(0,0,0,0.3));"></div>',
+          iconSize: [16, 14],
+          iconAnchor: [8, 14],
+        })
+      });
+      marker.bindPopup(
+        '<strong>Abortion Provider</strong><br>' +
+        d.county + ', ' + d.state + '<br>' +
+        d.name + '<br>' +
+        'Opened: ' + d.open + (d.close ? '<br>Closed: ' + d.close : '')
+      );
+      clinicMarkers.addLayer(marker);
+    }
+  });
+
+  document.getElementById('cpcCount').textContent = cpcCount;
+  document.getElementById('clinicCount').textContent = clinicCount;
+
+  // Update ratio bar
+  const ratio = clinicCount > 0 ? (cpcCount / clinicCount).toFixed(1) : '—';
+  document.getElementById('ratioText').textContent =
+    'Ratio: ' + ratio + ' CPCs per abortion provider';
+  const barPct = Math.min((cpcCount / Math.max(cpcCount + clinicCount, 1)) * 100, 100);
+  document.getElementById('ratioBar').style.width = barPct + '%';
+}
+
+// Slider
+const slider = document.getElementById('yearSlider');
+const display = document.getElementById('yearDisplay');
+
+slider.addEventListener('input', function() {
+  const year = parseInt(this.value);
+  display.textContent = year;
+  updateMap(year);
+});
+
+// Play/pause animation
+let playing = false;
+let playInterval = null;
+
+function togglePlay() {
+  const btn = document.getElementById('playBtn');
+  if (playing) {
+    clearInterval(playInterval);
+    btn.innerHTML = '&#9654; Play';
+    btn.classList.remove('playing');
+    playing = false;
+  } else {
+    // If at end, reset to start
+    if (parseInt(slider.value) >= 2020) {
+      slider.value = 1975;
+    }
+    btn.innerHTML = '&#9646;&#9646; Pause';
+    btn.classList.add('playing');
+    playing = true;
+    playInterval = setInterval(() => {
+      let val = parseInt(slider.value);
+      if (val >= 2020) {
+        clearInterval(playInterval);
+        btn.innerHTML = '&#9654; Play';
+        btn.classList.remove('playing');
+        playing = false;
+        return;
+      }
+      slider.value = val + 1;
+      display.textContent = val + 1;
+      updateMap(val + 1);
+    }, 400);
+  }
+}
+
+// Initial render
+updateMap(1990);
+</script>
+</body>
+</html>
