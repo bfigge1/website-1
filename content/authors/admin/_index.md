@@ -18,7 +18,7 @@ organizations:
 # Interests to show in About widget
 interests:
 - Applied Microeconomics
-- Health Economics
+- Public Economics
 - Environmental Economics
 - Policy Evaluation
 

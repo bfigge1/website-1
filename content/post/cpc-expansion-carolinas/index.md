@@ -10,8 +10,8 @@ tags:
 - data visualization
 categories:
 - Research
-date: "2026-02-15T00:00:00Z"
-lastmod: "2026-02-15T00:00:00Z"
+date: "2026-03-10T00:00:00Z"
+lastmod: "2026-03-10T00:00:00Z"
 featured: true
 draft: false
 
