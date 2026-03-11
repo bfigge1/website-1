@@ -5,7 +5,7 @@
 
 main:
   - name: JMP
-    url: '#featured'
+    url: uploads/figge_jmp.pdf
     weight: 52
   - name: Research
     url: '#research'
