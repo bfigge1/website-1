@@ -18,7 +18,9 @@ organizations:
 # Interests to show in About widget
 interests:
 - Applied Microeconomics
-- Causal Inference
+- Health Economics
+- Environmental Economics
+- Policy Evaluation
 
 # Education to show in About widget
 education:
@@ -35,9 +37,6 @@ social:
 - icon: envelope
   icon_pack: fas
   link: '/#contact'
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/BelaFigge
 - icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
   icon_pack: fas
   link: https://scholar.google.com/citations?user=KmpVxdUAAAAJ&hl=en
@@ -58,12 +57,11 @@ email: "bela.figge@gmail.com"
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
-<br>
-I am an applied microeconomist who recently received my PhD in Economics from Georgia State University. I am on the 2025-26 academic job market. <br>
 
+I am an applied microeconomist on the 2025–26 academic job market. I received my PhD in Economics from Georgia State University in 2022.
 
-My research examines how decentralized implementation affects policy outcomes. In my job market paper, I estimate that crisis pregnancy centers reduce abortion rates by 18 percent, with effects concentrated among teenagers. <br>
+My research examines how decentralized policy implementation shapes outcomes — focusing on the local actors, organizations, and regulations that determine whether broader policy goals are achieved or undermined.
 
-In published and working papers with coauthors, I study how municipal building codes affect solar energy adoption in Germany and California.
+My job market paper provides the first causal estimates of how crisis pregnancy centers (CPCs) affect fertility outcomes. Using a 30-year county panel from North and South Carolina and a new simulation-based instrumental variables approach, I find that CPCs reduce local abortion rates by 8 to 18 percent, with the largest effects among teenagers and young women.
 
-
+In published and working papers, I study how municipal building codes affect residential solar adoption in Germany and California.
