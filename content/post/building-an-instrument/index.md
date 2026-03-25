@@ -23,55 +23,47 @@ image:
   preview_only: false
 ---
 
-The core empirical challenge in studying crisis pregnancy centers is familiar to any applied economist: selection on unobservables. CPCs do not open randomly. They tend to locate in areas with larger populations, more religious institutions, and potentially higher abortion rates. A naive regression of abortion rates on CPC counts would be biased.
+The core empirical challenge in studying crisis pregnancy centers is familiar to any applied economist: selection on unobservables. CPCs do not open randomly. They tend to locate in areas with larger populations, more religious institutions, and potentially higher abortion rates. A naive regression of abortion rates on CPC counts would be biased. In fact, OLS understates the causal effect because CPCs locate where abortion demand is high for unobserved reasons, attenuating the estimate toward zero.
 
-This post explains the simulated instrumental variables (IV) strategy I developed for my [job market paper](/publication/figge_jmp/) and shows Monte Carlo evidence that it works.
+This post explains the simulated instrumental variables (IV) strategy I developed for my [paper](/publication/figge_jmp/) and shows Monte Carlo evidence that it works.
 
 ## The idea
 
-Simulated instruments have a long history in economics, dating back to [Currie and Gruber (1996)](https://doi.org/10.1086/262059) on Medicaid eligibility and used more recently in contexts like [Duggan and Scott Morton (2010)](https://doi.org/10.1257/aer.100.1.590) on prescription drug markets. The core logic is always the same: use a national policy or expansion pattern, applied to local baseline characteristics, to generate predicted exposure that is plausibly exogenous to local shocks.
+Simulated instruments have a long history in economics, dating back to [Currie and Gruber (1996)](https://doi.org/10.1086/262059) on Medicaid eligibility. The core logic is to generate predicted exposure from predetermined characteristics that is plausibly exogenous to local shocks. My approach extends this to a dynamic, path-dependent setting, connecting to the formula instruments framework of [Borusyak, Hull, and Jaravel (2025)](https://doi.org/10.3982/ECTA17968).
 
-For CPCs, the approach works as follows.
+CPC expansion is not driven by discrete policy shocks or regulatory discontinuities. It is a decentralized process where individual organizations respond to local conditions over decades. The probability that a county receives its *k*th CPC depends on the entire history of past placements, compounding over 30 years into a nonlinear function of past observables and organizational shocks. No standard difference-in-differences design works here. The instrument construction proceeds in two steps.
 
-**Step 1.** I take county characteristics at a baseline year (before the CPC expansion I'm studying): population, religious adherence rates, urbanization, highway proximity, and other predictors of CPC location.
+**Step 1: Hazard model.** I estimate a discrete-time logit of CPC entry, where the probability of a new CPC opening in county *c* at time *t* depends on predetermined county characteristics: lagged CPC stock, distance to the nearest CPC, lagged abortion rates, abortion provider presence, demographics, religious composition, political ideology, unemployment, county fixed effects, and a polynomial time trend. Counties can receive multiple CPCs; the model allows repeated events by conditioning on accumulated stock.
 
-**Step 2.** I estimate the national relationship between these characteristics and CPC openings across all counties in the U.S., excluding the Carolinas.
+**Step 2: Forward simulation.** Starting from observed 1990 conditions, I forward-simulate 1,000 counterfactual CPC expansion paths. Each draw uses independent random shocks and the predicted opening probabilities to determine CPC entry, updating county characteristics (CPC stock, distance to nearest CPC) recursively each year. Averaging simulated CPC presence across draws yields the instrument, which converges to the conditional expectation of CPC presence given predetermined characteristics. The simulation is a computational device: the random shocks are computer-generated numbers, and averaging 1,000 draws eliminates them by the law of large numbers, leaving a deterministic function of the lagged observables.
 
-**Step 3.** I apply these estimated coefficients to Carolinas county characteristics to get a predicted number of CPCs for each county-year. This "simulated" CPC count captures the component of CPC presence driven by predetermined local characteristics interacted with national trends, stripping out local demand shocks that might correlate with abortion rates.
-
-**Step 4.** I use this simulated CPC count as an instrument for actual CPC presence in a 2SLS framework.
-
-The exclusion restriction requires that baseline county characteristics affect abortion rates only through their influence on CPC presence, conditional on county and year fixed effects. The county fixed effects absorb all time-invariant county characteristics, so the instrument is identified off of differential changes in predicted CPC exposure over time across counties with different baseline characteristics.
+The identifying assumption is predetermination: conditional on rich historical observables and two-way fixed effects, the residual timing of CPC openings is orthogonal to contemporaneous fertility shocks. The exclusion restriction follows from the law of iterated expectations, without requiring a separate argument about the instrument's channels of influence. The hazard model determines instrument strength (first-stage F = 170) and complier weighting, not the exclusion restriction. Misspecifying the hazard weakens the first stage but does not introduce bias as long as predetermination holds.
 
 ## Monte Carlo validation
 
-A simulated instrument can fail for several reasons: misspecification of the prediction model, nonlinear confounding, or heterogeneous treatment effects that the instrument does not capture. Rather than asking readers to take the exclusion restriction on faith, I run a Monte Carlo exercise to show the instrument recovers the true parameter under realistic data-generating processes.
-
-I simulate data that mimics the key features of my actual dataset: a county-year panel with endogenous CPC placement, correlated unobservables, and realistic effect sizes. I then estimate the IV model on each simulated dataset and examine the distribution of estimates.
+The Monte Carlo exercise validates the estimator under severe designed endogeneity. The design crosses three true treatment effects (beta = -0.10, -0.20, -0.30) with three data-generating processes, for nine cells with 100 replications each. Crucially, the hazard model is deliberately misspecified in all cells: the true DGP includes confounders and functional forms not available to the hazard estimator, so the instrument is constructed from a model the researcher knows is wrong.
 
 {{< figure src="monte_carlo.png" caption="**Monte Carlo validation.** Kernel density of IV estimates across 100 replications. Dashed line marks the true parameter. Dotted line marks the IV mean. Rows vary the true effect size. Columns vary the data-generating process." numbered="true" >}}
 
 The figure shows results across a 3x3 grid. The rows correspond to three true effect sizes (beta = -0.30, -0.20, -0.10). The columns correspond to three data-generating processes of increasing complexity.
 
-**Correct specification** (left column). The DGP matches the assumptions of the estimation model. The IV estimates are centered near the truth with small bias (+0.037, -0.014, +0.032) and moderate variance. This is the baseline sanity check.
+**Additive confounding** (left column). The DGP includes an additive confounder that drives both CPC placement and outcomes. OLS is severely biased, with mean estimates near +1.5 when the true effect is negative, a sign reversal. The IV recovers the truth with small bias.
 
-**Nonlinear confounding** (middle column). I introduce a quadratic relationship between the confounder and the outcome, which the linear model cannot capture. The IV still performs well. Bias remains small (-0.003 to +0.011), confirming that the instrument is robust to this form of misspecification.
+**Nonlinear confounding** (middle column). The confounder enters through an interaction with treatment, which the linear model cannot capture. The IV still performs well. Bias remains small, confirming that the instrument is robust to this form of misspecification.
 
-**Heterogeneous effects by age** (right column). The treatment effect varies across age groups, and the instrument recovers a weighted average. For beta = -0.30 and -0.20, the bias is small (-0.067 and +0.004). For beta = -0.10, it's negligible (+0.009). The variance is somewhat larger, which is expected when the instrument captures an average of heterogeneous effects.
+**Heterogeneous effects by age** (right column). The treatment effect varies across age groups, and the instrument recovers a weighted average. Bias is small across all three true effect sizes. The variance is somewhat larger, which is expected when the instrument captures an average of heterogeneous effects.
 
-Across all nine cells, the IV bias never exceeds 0.07 in absolute value, and the distributions are reasonably well-centered on the truth. This is not a proof that the instrument works in the real data, but it establishes that the approach is sound under plausible conditions.
+Across all nine cells, the IV bias never exceeds 0.07 in absolute value, and 95% confidence interval coverage is near nominal. This is not a proof that the instrument works in the real data, but it establishes that the statistical machinery recovers the right number even when the hazard model is wrong, confirming that instrument validity depends on predetermination, not on correct specification of the hazard.
 
 ## What the Monte Carlo does not do
 
-It doesn't address all threats. If CPCs respond to local abortion demand shocks that are also correlated with changes in birth rates through other channels, the instrument could still be invalid. I address these concerns in the paper with additional robustness checks: pre-trend tests, placebo outcomes, and sensitivity to alternative instrument construction.
+It doesn't validate the identifying assumption itself. If predetermination fails, say because CPC openings were anticipated and triggered behavioral responses before the CPC appeared, or because CPC entry coincided with abortion clinic closures for reasons the instrument cannot capture, the IV could still be biased. The paper addresses these concerns with event study pre-trend tests (flat for abortion, birth, and pregnancy), a permutation test shuffling the instrument across counties (first-stage F of 0.69 vs. 170 in the actual data), and sensitivity to alternative specifications.
 
-The value of the Monte Carlo is narrower. It shows that the *statistical machinery* works. Given a valid exclusion restriction, the estimator recovers the right number. That's a useful thing to know before interpreting the point estimates.
+The value of the Monte Carlo is narrower: given predetermination, the estimator recovers the right number even when the hazard model is deliberately wrong.
 
 ## Why show this?
 
-Most applied papers assert instrument validity with a first-stage F-statistic and a plausibility argument. Monte Carlo validation goes further by demonstrating the estimator's performance under controlled conditions. I think the field would benefit from more of this, particularly for simulated instruments where the prediction step introduces additional degrees of freedom.
-
-If you're building a simulated IV in your own work, I'd recommend a similar exercise. It takes a few hours to code and can reveal problems with your instrument that no amount of hand-waving about the exclusion restriction will catch.
+Most applied papers assert instrument validity with a first-stage F-statistic and a plausibility argument. Monte Carlo validation goes further by demonstrating the estimator's performance under controlled conditions where the answer is known. For simulated instruments, where the prediction step introduces additional degrees of freedom, this kind of exercise is especially valuable. It takes a few hours to code and can reveal problems that no amount of hand-waving about the exclusion restriction will catch.
 
 ---
 

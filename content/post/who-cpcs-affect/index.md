@@ -1,7 +1,7 @@
 ---
 title: "Who Do Crisis Pregnancy Centers Actually Affect?"
-subtitle: "The age-specific effects of CPCs on abortion and birth rates"
-summary: "CPCs reduce abortion rates most among women in their early 20s, but increase birth rates most among teenagers. The age patterns reveal something about how these centers work."
+subtitle: "Age-specific effects and the substitution mechanism"
+summary: "CPC abortion reductions are pervasive across all age groups, peaking at ages 25-29. Pregnancy rates do not respond at any age, confirming substitution. A marital decomposition reveals that the births concentrate among married women aged 25-34."
 authors:
 - admin
 tags:
@@ -17,53 +17,47 @@ featured: true
 draft: false
 
 image:
-  caption: "CPC effects vary substantially by age group"
+  caption: "CPC effects by age group on abortion, birth, and pregnancy rates"
   focal_point: ""
   placement: 2
   preview_only: false
 ---
 
-The headline finding from my [job market paper](/publication/figge_jmp/) is that crisis pregnancy centers reduce abortion rates by about 18 percent. That number comes from a 2SLS estimate using a simulated instrument for CPC exposure, applied to a 30-year county panel from North and South Carolina.
+The headline finding from my [paper](/publication/figge_jmp/) is that one additional CPC per 10,000 women reduces abortion rates by 13 to 14 percent. That number comes from a 2SLS estimate using a simulated instrument for CPC exposure, applied to a 30-year county panel from North and South Carolina.
 
-But aggregate effects hide the more interesting story. When I estimate the model separately by age group, the pattern that emerges tells us something about *how* CPCs work, not just *whether* they work.
+But the aggregate number hides the more interesting story. When I decompose the estimates by age group and marital status, the pattern tells us something about *how* CPCs work, not just *whether* they work.
 
-## The coefficient plot
+## The age decomposition
 
-The figure below shows 2SLS coefficients for two outcomes (log abortion rate and log birth rate) across five age groups. Each age group is estimated in a separate regression using the same simulated CPC instrument.
+The figure below shows 2SLS coefficients for three outcomes (log abortion rate, log birth rate, and log pregnancy rate) across five age groups. Each age group is estimated in a separate regression using the same simulated CPC instrument (first-stage F > 127 in all cases).
 
-{{< figure src="age_coefficients.png" caption="**CPC effects by age group.** Blue circles show the effect on log abortion rates. Red triangles show the effect on log birth rates. 95% confidence intervals shown." numbered="true" >}}
+{{< figure src="age_coefficients.png" caption="**CPC effects by age group.** Circles show abortion effects, triangles show birth effects, diamonds show pregnancy effects. 95% confidence intervals shown." numbered="true" >}}
 
-Three things jump out.
+Three things stand out.
 
-**Abortion effects are largest for women aged 20-29.** The point estimates for the 20-24 and 25-29 age groups are around -0.17 to -0.18 in log points, roughly a 16-18 percent reduction in the abortion rate. The effect for teenagers (10-19) is smaller at about -0.11, and for women 35-44 it's about -0.08.
+**Abortion reductions are pervasive across all age groups.** Coefficients range from -0.136 (ages 35-44) to -0.212 (ages 25-29). This is not a story about CPCs affecting one particular demographic. The reductions are negative and significant everywhere.
 
-**Birth rate effects are positive across all age groups.** CPC presence increases birth rates by 5-10 percent, depending on age. This is the mirror image of the abortion reduction: women who would have obtained abortions are instead carrying pregnancies to term.
+**Birth effects are positive and significant at ages 25 and older.** The magnitudes are small, which is expected: the birth base rate is roughly five times the abortion rate, so even full one-for-one substitution produces only a modest percentage increase in births.
 
-**The abortion-birth tradeoff is not one-to-one.** For teenagers, the birth rate effect (about +5%) is large relative to the abortion effect (about -11%). For women 25-34, the birth effect is proportionally larger (+10%) compared to their abortion reduction. This suggests CPCs are not simply substituting abortions for births; they may also be affecting pregnancy incidence or other margins (miscarriage timing, out-of-state travel).
+**Pregnancy rates do not respond at any age.** All five pregnancy coefficients are statistically indistinguishable from zero. This is the key mechanistic finding. Under deterrence, where CPCs prevent pregnancies through upstream behavioral change, pregnancy rates should fall. They do not. The data are consistent with substitution at every age: CPCs change how pregnancies are resolved, not whether they occur.
 
-## What explains the age pattern?
+## The marital decomposition
 
-The fact that 20-somethings show the largest abortion reductions makes sense for several reasons. Women in their early 20s have the highest baseline abortion rates, so there is more margin to move. They are also the demographic most likely to face an unplanned pregnancy during a period of economic instability (still in school, early career, less likely to have a stable partner). CPC services like free ultrasounds, parenting classes, and material goods may have the highest marginal value for this group.
+An exploratory marital decomposition reveals where the substituting births land. Abortion reductions are pervasive among unmarried women across all adult ages, while the corresponding birth increases concentrate among married women aged 25 to 34. The substitution ratio at ages 25 to 29 is consistent with one-for-one replacement (ratio = 0.93, with the 95% confidence interval including unity).
 
-Teenagers show a smaller abortion effect but a notable birth effect. One interpretation: teens who interact with CPCs may be less likely to travel to obtain an out-of-county abortion (they have fewer resources, less transportation autonomy), so the local presence of a CPC matters more on the birth margin.
-
-Women over 35 show the weakest effects overall. This is consistent with older women having more established preferences and resources, making them less susceptible to CPC counseling at the margin.
+The demographic mismatch between where abortions fall (unmarried women broadly) and where births rise (married women at prime childbearing ages) is suggestive but hard to pin down with county-level data. It could reflect within-woman reclassification (women who marry because they carry to term), cross-demographic spillovers (community norms shifting), or simply that married women in this age range are the group where an additional pregnancy is most likely to result in a live birth rather than another outcome. The county-level data cannot distinguish these channels.
 
 ## The event study
 
-To check that these effects reflect CPC openings rather than pre-existing trends, the figure below shows an event study. I plot coefficients for years before and after the first CPC opens in a county, separately by age group.
+Event study estimates around first CPC opening show flat pre-trends for abortion, birth, and pregnancy rates. Joint F-tests fail to reject the null of zero pre-trends (p = 0.359 for abortion, p = 0.547 for birth, p = 0.446 for pregnancy). The flat pregnancy pre-trends are particularly useful for the mechanism analysis: they confirm that treated and control counties were on parallel pregnancy trajectories before CPC entry, strengthening the interpretation of the post-treatment pregnancy null as a causal zero.
 
-{{< figure src="event_study.png" caption="**Event study for birth rates by age group.** Coefficients are relative to the year before CPC opening (dashed line). County and year fixed effects, population weighted." numbered="true" >}}
-
-The pre-trends are flat for all age groups, which supports the identifying assumption. After CPC entry, birth rates drift upward, with the effect building gradually over several years. This is consistent with the mechanism: CPCs take time to establish community presence and build a client base.
+{{< figure src="event_study.png" caption="**Event study around first CPC opening.** Coefficients relative to the year before CPC opening. County and year fixed effects, population weighted." numbered="true" >}}
 
 ## Why this matters
 
-The age heterogeneity is policy-relevant for two reasons.
+The mechanism evidence has direct policy implications. Because CPCs work through substitution rather than deterrence, the relevant welfare question is about the marginal woman redirected from abortion to birth, not about averted pregnancies. The marital decomposition suggests the substituting births concentrate among married women at prime childbearing ages, a group for whom carrying to term is plausibly close to desired fertility timing. But unmarried teenagers also show a clean substitution cell, and for that group the welfare calculus is less favorable.
 
-First, it tells us CPCs are most effective among economically vulnerable women. This raises questions about long-term outcomes. Are these additional births occurring among women who have the resources to support them? My paper cannot answer that, but the age pattern suggests the answer may often be no.
-
-Second, it constrains the mechanism. CPCs are not simply making abortion harder to access (that would affect all ages roughly equally, conditional on baseline rates). They appear to be changing individual-level decisions through counseling and support services, with effects that vary by how much a woman stands to gain from those services.
+States have substantially increased CPC funding since *Dobbs*. The mechanism evidence implies that this funding generates additional births whose welfare consequences depend on wantedness, something the data cannot measure.
 
 ---
 

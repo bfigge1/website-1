@@ -1,7 +1,7 @@
 ---
 title: "How Crisis Pregnancy Centers Spread Across the Carolinas"
 subtitle: "Mapping three decades of expansion and what it means for reproductive access"
-summary: "Between 1990 and 2019, crisis pregnancy centers in North and South Carolina grew from 62 to over 150. Here's what that expansion looked like, county by county."
+summary: "Between 1990 and 2019, crisis pregnancy centers in North and South Carolina grew from roughly 60 to 146. Here's what that expansion looked like, county by county."
 authors:
 - admin
 tags:
@@ -24,7 +24,7 @@ image:
 
 {{< include-html "leaflet_map.html" >}}
 
-In 1990, there were 62 crisis pregnancy centers (CPCs) in North and South Carolina. By the late 2010s, that number had grown to over 150. During the same period, the number of abortion providers barely moved, hovering between 18 and 26.
+In 1990, there were roughly 60 crisis pregnancy centers (CPCs) in North and South Carolina. By 2019, that number had grown to 146. During the same period, the number of abortion providers barely moved, going from 20 in 1990 to 23 in 2019.
 
 This post walks through the data behind my [job market paper](/publication/figge_jmp/) on CPCs and fertility decisions, starting with the most basic question: where did these centers open, and why does that geography matter?
 
@@ -50,17 +50,17 @@ Third, by the late 2010s, CPCs outnumber abortion providers roughly 7 to 1 in th
 
 The key challenge in studying CPCs is endogeneity. CPCs don't open randomly. They may target areas where abortion rates are already high, or where local religious communities are mobilizing. A naive regression of abortion rates on CPC presence would conflate the effect of CPCs with whatever drove them to locate there.
 
-My paper addresses this with a simulated instrumental variables strategy. The basic idea: I use the characteristics of a county at a baseline period (before CPC expansion) to predict how many CPCs it would eventually receive, based on the national expansion pattern. This strips out the local demand-side factors that drive both CPC location and abortion rates.
+My paper addresses this with a simulated instrumental variables strategy. I estimate a discrete-time hazard model of CPC entry from predetermined county characteristics, then forward-simulate 1,000 counterfactual expansion paths. Averaging across draws yields a predicted CPC count that converges to the conditional expectation of CPC presence given observable county history. The identifying assumption is predetermination: conditional on rich historical observables and two-way fixed effects, the residual timing of CPC openings is orthogonal to contemporaneous fertility shocks.
 
-The maps above give visual intuition for why this works. The expansion followed a predictable spatial pattern tied to population density, highway access, and proximity to existing religious infrastructure. Counties that "looked like" CPC targets in 1990 did in fact get more CPCs, and I can use that predicted exposure as an instrument.
+The maps above give visual intuition for why the instrument has power. The expansion followed a predictable spatial pattern tied to population density, existing CPC stock, distance to the nearest center, and proximity to evangelical institutional infrastructure. The hazard model captures this path-dependent process, and the forward simulation compounds it over 30 years into cross-county variation that no linear function of the same covariates can replicate (first-stage F = 170).
 
 I go deeper into the methodology in a [separate post](/post/building-an-instrument/).
 
 ## What did all that expansion do?
 
-The headline result: CPC presence reduces county-level abortion rates by about 18 percent. That's a meaningful effect. It implies that CPCs are succeeding at their core mission of redirecting women away from abortion, at least in the aggregate.
+The headline result: one additional CPC per 10,000 women reduces abortion rates by 13 to 14 percent in 2SLS estimation. Pregnancy rates do not respond to CPC presence, ruling out deterrence (upstream behavioral change that prevents pregnancies) as the primary channel. The accounting is consistent with substitution: CPCs change how pregnancies are resolved, not whether they occur.
 
-But that aggregate number hides important variation by age. I unpack that in [another post](/post/who-cpcs-affect/).
+But the aggregate number hides important variation by age and marital status. I unpack that in [another post](/post/who-cpcs-affect/).
 
 ---
 
