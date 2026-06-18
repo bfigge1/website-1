@@ -20,7 +20,7 @@ image:
   caption: "CPC effects by age group on abortion, birth, and pregnancy rates"
   focal_point: ""
   placement: 2
-  preview_only: false
+  preview_only: true
 ---
 
 The headline finding from my [paper](/publication/figge_jmp/) is that one additional CPC per 10,000 women reduces abortion rates by 7 to 14 percent, depending on the estimator, with the 2SLS specification at the top of that range. That number comes from a simulated instrument for CPC exposure, applied to a 30-year county panel from North and South Carolina.

@@ -115,6 +115,30 @@
     border-radius: 4px;
     transition: width 0.3s ease;
   }
+  /* Stop the site theme's global CSS from moving Leaflet's layers.
+     Broad transition/transform rules and img { max-width:100% } leak into
+     the tile, marker, and SVG overlay panes and make the state outline and
+     markers drift out of sync with the base map when panning or zooming. */
+  #map .leaflet-pane,
+  #map .leaflet-tile,
+  #map .leaflet-tile-container,
+  #map .leaflet-marker-icon,
+  #map .leaflet-marker-shadow,
+  #map .leaflet-image-layer,
+  #map .leaflet-layer,
+  #map .leaflet-zoom-box,
+  #map .leaflet-pane > svg,
+  #map .leaflet-pane > canvas,
+  #map .leaflet-pane path {
+    transition: none !important;
+    animation: none !important;
+  }
+  #map img,
+  #map .leaflet-tile,
+  #map .leaflet-marker-icon {
+    max-width: none !important;
+    max-height: none !important;
+  }
 </style>
 </head>
 <body>
@@ -285,6 +309,15 @@ function togglePlay() {
 
 // Initial render
 updateMap(1990);
+
+// Recompute the container size once the page layout has settled. If Leaflet
+// initializes against a stale or zero size (common when embedded in a themed
+// page), tiles and overlay layers compute pixel positions that no longer match
+// the base map. invalidateSize() forces a clean recalculation.
+function fixMapSize() { map.invalidateSize(false); }
+window.addEventListener('load', () => setTimeout(fixMapSize, 0));
+setTimeout(fixMapSize, 300);
+window.addEventListener('resize', fixMapSize);
 </script>
 </body>
 </html>

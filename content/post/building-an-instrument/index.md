@@ -20,7 +20,7 @@ image:
   caption: "Monte Carlo validation of the simulated IV strategy"
   focal_point: ""
   placement: 2
-  preview_only: false
+  preview_only: true
 ---
 
 The core empirical challenge in studying crisis pregnancy centers is familiar to any applied economist: selection on unobservables. CPCs do not open randomly. They tend to locate in areas with larger populations, more religious institutions, and potentially higher abortion rates. A naive regression of abortion rates on CPC counts would be biased. In fact, OLS understates the causal effect because CPCs locate where abortion demand is high for unobserved reasons, attenuating the estimate toward zero.
