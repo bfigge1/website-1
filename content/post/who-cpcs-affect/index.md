@@ -51,7 +51,7 @@ For teenagers the picture is different and cleaner. The log-rate regression is u
 
 ## The event study
 
-Event study estimates around first CPC opening show flat pre-trends for abortion, birth, and pregnancy rates. Joint F-tests fail to reject the null of zero pre-trends (p = 0.359 for abortion, p = 0.547 for birth, p = 0.446 for pregnancy). The flat pregnancy pre-trends are particularly useful for the mechanism analysis: they confirm that treated and control counties were on parallel pregnancy trajectories before CPC entry, strengthening the interpretation of the post-treatment pregnancy null as a causal zero.
+Event study estimates around first CPC opening show flat pre-trends on the joint test: the F-tests fail to reject the null of zero pre-trends for all three outcomes (p = 0.359 for abortion, p = 0.547 for birth, p = 0.446 for pregnancy). The pregnancy pre-trends matter most for the mechanism analysis, and here the evidence needs care. The joint test cannot reject flat pregnancy pre-trends, but two of the nine individual pregnancy leads (event times -5 and -4) are significant, so the event study alone does not establish parallel pregnancy trajectories. The interpretation of the post-treatment pregnancy null as a causal zero therefore rests primarily on the continuous-intensity IV estimates, not on the binary event-study indicator.
 
 {{< figure src="event_study.png" caption="**Event study around first CPC opening.** Coefficients relative to the year before CPC opening. County and year fixed effects, population weighted." numbered="true" >}}
 
