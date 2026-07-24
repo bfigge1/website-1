@@ -21,7 +21,6 @@ interests:
 - Public Economics
 - Education Policy
 - Environmental Economics
-- Policy Evaluation
 
 # Education to show in About widget
 education:
