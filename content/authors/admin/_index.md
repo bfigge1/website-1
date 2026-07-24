@@ -59,12 +59,10 @@ email: "bela.figge@gmail.com"
 highlight_name: true
 ---
 
-I am an applied microeconomist on the 2025–26 academic job market. I received my PhD in Economics from Georgia State University in 2022.
+I'm on the job market.
 
-My research examines how decentralized policy implementation shapes outcomes. I focus on the local actors and governments (health providers, municipalities, school districts, and state agencies) that determine whether broader policy goals are achieved or undermined.
+My research examines how decentralized policy implementation shapes outcomes. I focus on the local actors and governments that determine whether broader policy goals are achieved or undermined.
 
 My job market paper provides the first causal estimates of how crisis pregnancy centers (CPCs) affect fertility outcomes. Using a 30-year county panel from North and South Carolina and a new simulation-based instrumental variables approach, I find that CPCs reduce local abortion rates by 8 to 18 percent, with the largest effects among teenagers and young women.
 
-I also work extensively in education policy. Within research-practice partnerships with school districts and state agencies, I have used large administrative datasets and quasi-experimental methods to evaluate K-12 and postsecondary programs, from a reading curriculum and career-and-technical-education assessments to the distribution of effective teachers across higher- and lower-poverty schools.
-
-In published and working papers, I also study how municipal building codes affect residential solar adoption in Germany and California.
+In published and working papers, I study how municipal building codes affect residential solar adoption in Germany and California.
