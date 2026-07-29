@@ -66,7 +66,7 @@ That produced much more variation than earlier policy studies suggested.
 
 Under our primary assumptions, estimated net present values were positive for every project in the sample. For single-family homes, they ranged from approximately $2,700 to $17,200, with a median of about $7,900. Under alternative assumptions—including higher installation costs, less favorable electricity compensation, and different electricity-use profiles—a minority of projects had negative or very small estimated payoffs.
 
-{{< figure src="solar-payoffs.png" caption="**Estimated private payoffs from rooftop solar.** The primary model produces positive but heterogeneous net present values. Alternative assumptions reduce the estimated payoff for some projects and reveal greater variation than studies based on a small number of representative buildings." numbered="true" >}}
+{{< figure src="solar-payoffs-web.svg" caption="**Estimated private payoffs from rooftop solar.** The primary model produces positive but heterogeneous net present values. Alternative assumptions reduce the estimated payoff for some projects and reveal greater variation than studies based on a small number of representative buildings." numbered="true" >}}
 
 The first lesson, then, is not that rooftop solar was equally profitable everywhere.
 
@@ -91,6 +91,8 @@ So the relevant question is not simply:
 It is also:
 
 > Is that payoff large, certain, and salient enough to affect the builder's decision?
+
+{{< figure src="payoff-relative-scale.svg" caption="**Positive does not necessarily mean salient.** For projects with observed costs, the median estimated solar payoff was about $7,900 compared with a median construction cost of roughly $500,000." numbered="true" >}}
 
 ## Profitability only weakly predicted adoption
 

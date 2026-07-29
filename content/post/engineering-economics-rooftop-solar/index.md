@@ -93,7 +93,7 @@ For each building project, we combined information from multiple sources:
 
 Together, these datasets allowed us to parameterize the engineering model using characteristics of actual projects rather than hypothetical examples.
 
-{{< figure src="engineering-model.png" caption="**From observed buildings to estimated payoffs.** We combine building permits with rooftop shading, local weather, electricity-use profiles, tariffs, incentives, and installation costs, then use NREL's System Advisor Model to estimate the expected private payoff from rooftop solar for each project." numbered="true" >}}
+{{< figure src="engineering-model-web.svg" caption="**From observed buildings to estimated payoffs.** We combine building permits with rooftop shading, local weather, electricity-use profiles, tariffs, incentives, and installation costs, then use NREL's System Advisor Model to estimate the expected private payoff from rooftop solar for each project." numbered="true" >}}
 
 ## Every project receives its own estimate
 
@@ -132,6 +132,8 @@ Alternative assumptions produced more variation. Higher installation costs, lowe
 That heterogeneity is itself an important result.
 
 Earlier engineering studies often concluded that rooftop solar was cost-effective across all representative new-construction cases. Our analysis suggests a more nuanced picture: expected private payoffs were generally positive, but their magnitude—and occasionally their sign—depended on project characteristics and assumptions about future conditions.
+
+{{< figure src="engineering-vs-economics.svg" caption="**Two linked questions.** Engineering estimates the expected payoff from a system; economics compares those incentives with observed adoption." numbered="true" >}}
 
 ## Economics asks a different question
 

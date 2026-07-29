@@ -74,7 +74,7 @@ The most profitable projects would install it much more frequently.
 
 Reality looked different.
 
-{{< figure src="solar-gap.png" caption="**Estimated payoffs and observed adoption.** Green distributions show projects that installed solar; blue distributions show those that did not. The lowest-payoff projects are less likely to adopt, but across most of the distribution adopter and non-adopter payoffs overlap substantially." numbered="true" >}}
+{{< figure src="solar-gap-web.svg" caption="**Estimated payoffs and observed adoption.** Green distributions show projects that installed solar; blue distributions show those that did not. The lowest-payoff projects are less likely to adopt, but across most of the distribution adopter and non-adopter payoffs overlap substantially." numbered="true" >}}
 
 The projects with the very lowest estimated payoffs were indeed less likely to install solar.
 
@@ -97,6 +97,8 @@ Estimated net present value by itself explained less than 8 percent of the varia
 That does **not** mean profitability is irrelevant.
 
 It means that many other factors appear to influence adoption.
+
+{{< figure src="npv-explains-less-than-eight.svg" caption="**Estimated profitability explains little of adoption.** Across the paper’s linear probability models, NPV explains less than eight percent of observed variation in solar adoption." numbered="true" >}}
 
 ## What is the solar gap?
 
@@ -153,6 +155,8 @@ But the median construction cost among projects with cost data is approximately 
 Builders manage financing, permits, inspections, subcontractors, and dozens of other decisions simultaneously.
 
 In that context, a benefit equal to one or two percent of project cost may simply receive relatively little attention—especially when it is uncertain or primarily benefits a future occupant.
+
+{{< figure src="solar-gap-mechanisms.svg" caption="**Possible mechanisms, not definitive conclusions.** The analysis is consistent with several explanations for the weak payoff–adoption relationship." numbered="true" >}}
 
 ## What the paper does—and does not—show
 

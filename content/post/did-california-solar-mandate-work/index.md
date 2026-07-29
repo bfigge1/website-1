@@ -61,6 +61,8 @@ Instead of asking whether solar adoption increased after 2020, we asked:
 
 Answering that question requires constructing a counterfactual.
 
+{{< figure src="policy-timeline.svg" caption="**Policy timeline.** San Francisco’s 2017 Better Roofs ordinance preceded California’s statewide low-rise residential requirement, effective in 2020." numbered="true" >}}
+
 ## The problem of missing histories
 
 Every policy evaluation faces the same challenge.
@@ -87,6 +89,8 @@ The resulting synthetic comparison provides an estimate of what adoption might h
 
 One advantage of the method is that readers can inspect the comparison directly. If the treated and synthetic series track one another before the policy and then diverge afterward, that pattern supports—but does not by itself prove—a causal interpretation.
 
+{{< figure src="synthetic-control-concept.svg" caption="**The counterfactual problem.** Synthetic control constructs a weighted comparison that tracks the treated geography before the policy, then uses the post-policy divergence to estimate the effect." numbered="true" >}}
+
 ## San Francisco: directly observing solar on new buildings
 
 San Francisco's Better Roofs ordinance took effect in January 2017. It applied to new residential, commercial, and municipal buildings, with exemptions and alternative compliance pathways including solar thermal systems and living roofs.
@@ -95,7 +99,7 @@ For this analysis, we observe individual new-construction permits and whether re
 
 The standard synthetic control places most of its weight on Oakland and San Jose. Before the policy, synthetic San Francisco tracks the city's solar-adoption share reasonably well despite quarterly volatility.
 
-{{< figure src="mandate-effect.png" caption="**San Francisco's mandate and rooftop solar adoption.** The observed share of new residential buildings with solar rises markedly relative to synthetic San Francisco after the 2017 ordinance. The paper also reports placebo tests and a synthetic difference-in-differences estimate." numbered="true" >}}
+{{< figure src="mandate-effects-summary.svg" caption="**San Francisco's mandate and rooftop solar adoption.** The observed share of new residential buildings with solar rises markedly relative to synthetic San Francisco after the 2017 ordinance. The paper also reports placebo tests and a synthetic difference-in-differences estimate." numbered="true" >}}
 
 After implementation, the series diverge.
 
@@ -180,6 +184,8 @@ The results therefore support a precise conclusion:
 > San Francisco's and California's mandates substantially increased rooftop solar adoption or capacity relative to their estimated no-policy counterfactuals.
 
 Whether rooftop mandates are the most efficient way to increase renewable generation is a separate welfare question, and the paper finds limited support for preferring them to larger utility-scale projects on those grounds.
+
+{{< figure src="effect-versus-welfare.svg" caption="**Two distinct questions.** The paper estimates whether mandates increased adoption, then separately considers transfers, social benefits, costs, and alternatives." numbered="true" >}}
 
 ## Measuring policy versus judging policy
 
