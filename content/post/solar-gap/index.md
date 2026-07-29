@@ -1,17 +1,17 @@
 ---
 title: "The Solar Gap"
-subtitle: "Why profitable rooftop solar is not always adopted - and what that means for climate policy."
-summary: "Why profitable rooftop solar is not always adopted - and what that means for climate policy."
+subtitle: "When estimated profitability only weakly predicts adoption."
+summary: "Our analysis suggests that expected private payoffs explain surprisingly little of the variation in rooftop solar adoption."
 authors:
 - admin
 tags:
 - solar
 - climate policy
-- California
+- behavioral economics
 categories:
 - Research
 date: "2026-07-29T12:20:00-07:00"
-lastmod: "2026-07-29T12:20:00-07:00"
+lastmod: "2026-07-29T13:45:00-07:00"
 featured: true
 draft: false
 
@@ -24,8 +24,6 @@ image:
 
 ---
 
-
-
 **California solar mandate series**
 
 1. [The Strange Economics of Rooftop Solar](/post/strange-economics-rooftop-solar/)
@@ -34,72 +32,167 @@ image:
 
 3. **The Solar Gap** *(current)*
 
-4. [Did California’s Solar Mandate Work?](/post/did-california-solar-mandate-work/)
+4. [Did California's Solar Mandate Increase Solar Adoption?](/post/did-california-solar-mandate-work/)
 
-5. [Why Climate Policy Is About Adoption](/post/climate-policy-is-about-adoption/)
+If you ask a simple question—
 
-One common assumption in climate policy is that profitable technologies will eventually be adopted. As costs fall, households and firms should respond. Under-adoption should disappear.
+> **Should a profitable investment be adopted?**
 
-Our California data suggest otherwise.
+—the obvious answer is usually yes.
 
-For most new residential projects in our sample, an engineering model estimated positive private returns from rooftop solar. Yet the majority did not install it before mandates took effect. More surprisingly, projects with larger estimated returns were not much more likely to adopt.
+Not because people are assumed to be perfect, but because expected profitability should generally make adoption **more likely**, even when other considerations matter.
 
-We call this difference the **solar gap**.
+Our study asked whether that relationship holds for rooftop solar on newly constructed homes.
 
-## What the gap is - and is not
+The answer was:
 
-The solar gap is not simply the observation that some buildings lack panels. Solar may genuinely be a poor investment on a shaded roof or in a location with low electricity use. The more interesting case is a project where detailed engineering estimates suggest a positive payoff and the builder still declines.
+**Only weakly.**
 
-{{< figure src="solar-gap.png" caption="**Estimated payoffs and observed adoption.** Green distributions show projects that installed solar; blue distributions show those that did not. Adoption differs little across the estimated-payoff distribution and remains incomplete even among high-payoff projects." numbered="true" >}}
+That finding became one of the central results of the paper.
 
-This does not prove that builders are irrational. Our model cannot observe every project-specific cost. A roof may have an aesthetic or structural limitation that is absent from the data. Interconnection, design changes, contractor search, and administrative work create real costs. Expected utility rates and incentives are uncertain.
+## Measuring expected profitability
 
-But even with those caveats, one would normally expect projects with much larger modeled returns to adopt more often. We find only weak evidence of that relationship. Non-adopters appear throughout the payoff distribution.
+In the previous article, I described how we estimated the expected private payoff from rooftop solar for thousands of new-construction projects using NREL's System Advisor Model.
 
-## Why might builders leave money on the table?
+Each building received an estimated net present value based on local weather, rooftop characteristics, electricity prices, expected electricity consumption, financing, incentives, installation costs, and other project characteristics.
 
-### Split incentives
+The result was an estimate of what rooftop solar was expected to be worth financially for each individual project.
 
-The builder pays the upfront cost, while the future homeowner receives decades of electricity savings. Solar may raise the sale price, but the builder may be uncertain that buyers will fully value it. This is a principal-agent problem: the person making the investment does not necessarily capture the full return.
+The next step was straightforward.
 
-### Small benefits inside a large project
+We compared those estimated payoffs with what builders actually did.
 
-A payoff of several thousand dollars is meaningful to a household. It may be less salient inside a $500,000 construction project. For most projects in our cost subsample, modeled solar payoffs were less than 2 percent of overall construction cost. Management attention is scarce, and small components can be ignored even when they are profitable.
+## What would we expect to see?
 
-### Financing and timing
+Imagine ordering every building from least profitable to most profitable.
 
-Positive net present value does not eliminate upfront financing needs. Builders may face borrowing constraints or prefer investments that shorten construction time. The payoff also depends on assumptions over 20 or 30 years, while developers may sell the building immediately.
+If expected profitability strongly determined adoption, we would expect a simple pattern.
 
-### Hassle and hidden costs
+The least profitable projects would rarely install solar.
 
-Finding installers, redesigning roof elements, obtaining permits, coordinating interconnection, and claiming incentives all require time. Engineering models can estimate equipment and financing costs more easily than the opportunity cost of management attention.
+The most profitable projects would install it much more frequently.
 
-### Uncertainty
+Reality looked different.
 
-Tax credits, net-metering policies, electricity prices, and equipment performance can change. A builder may rationally discount an estimated payoff when policy or tariff rules are uncertain.
+{{< figure src="solar-gap.png" caption="**Estimated payoffs and observed adoption.** Green distributions show projects that installed solar; blue distributions show those that did not. The lowest-payoff projects are less likely to adopt, but across most of the distribution adopter and non-adopter payoffs overlap substantially." numbered="true" >}}
 
-## Why the gap matters for policy
+The projects with the very lowest estimated payoffs were indeed less likely to install solar.
 
-If low adoption reflects negative returns, the policy response might be continued innovation or carefully targeted subsidies. If returns are positive but split incentives and transaction costs dominate, additional subsidies may have little effect. Standards, mandates, financing products, information, or process reform may be more effective.
+Beyond that lower tail, however, builders chose **not** to install solar across the full range of positive estimated payoffs.
 
-This is one reason a mandate can change behavior even when the mandated technology appears privately beneficial. The requirement removes the adoption decision from a setting where it can be deferred, overlooked, or undermined by conflicting incentives.
+Some projects with relatively modest estimated returns adopted solar. Others with substantially higher estimated returns did not.
 
-At the same time, our results counsel against an overly simple conclusion. Modeled payoffs were positive but often modest. The upper bound on money "left on the table" is therefore not enormous for many projects, and unmeasured costs could close part of the gap.
+The relationship between expected profitability and adoption existed, but it was much weaker than a simple investment model would predict.
 
-The useful conclusion is not that builders are foolish. It is that engineering profitability alone does not predict diffusion very well.
+## Quantifying the relationship
 
-## A recurring climate-policy problem
+Visual patterns can be misleading, so we also estimated statistical models relating observed adoption to estimated net present value.
 
-The same structure appears beyond solar. Landlords may not install insulation when tenants pay energy bills. Homeowners may delay wildfire retrofits despite lower expected losses. Drivers may avoid electric vehicles despite lower lifetime operating costs. Households may keep old appliances because purchase prices are more salient than future savings.
+The relationship remained modest.
 
-In each case, the gap between technical potential and actual adoption is a research question of its own. Climate solutions matter only when institutions and decision-makers carry them into practice.
+Across model specifications and alternative engineering parameterizations, a $1,000 increase in estimated net present value was associated with a relatively small increase in adoption probability. In the primary specification with city and year fixed effects, a one-standard-deviation increase in payoff within a city-year corresponded to an increase in adoption probability of only about 1.2 percentage points.
+
+Estimated net present value by itself explained less than 8 percent of the variation in adoption decisions. Specifications adding location, time, and income controls explained more overall variation, but the payoff-adoption relationship remained limited.
+
+That does **not** mean profitability is irrelevant.
+
+It means that many other factors appear to influence adoption.
+
+## What is the solar gap?
+
+We use the term **solar gap** for the evidence that builders sometimes forgo rooftop solar despite positive estimated private payoffs—and, in particular, for the weak relationship between the size of those estimated payoffs and observed adoption.
+
+Notice what this definition does **not** say.
+
+It does not claim that every builder who skipped rooftop solar made a mistake.
+
+Nor does it imply that our engineering model perfectly measures the true profitability of every project.
+
+Instead, it points to something more modest.
+
+If estimated profitability were the dominant driver of adoption, we would expect projects with higher estimated payoffs to adopt much more frequently.
+
+That is not what we observe.
+
+## Why might this happen?
+
+The paper discusses several possible explanations.
+
+### 1. The engineering model may miss some costs
+
+Administrative effort, permitting, contractor coordination, grid interconnection, and design revisions can all create real costs.
+
+These "hassle costs" are difficult to observe and quantify. The paper estimates that, across most parameterizations, unobserved costs or model misspecification would need to exceed roughly $4,000 per project to rationalize even half of the observed non-adoption decisions.
+
+That is possible, but it is not trivial relative to the modeled payoffs.
+
+### 2. Builders and future occupants may face different incentives
+
+The builder typically pays for installing the solar system.
+
+The future homeowner or tenant receives much of the electricity savings.
+
+If builders cannot fully recover that value in the building's sale price or rent, they may rationally install less solar than would be optimal for the eventual occupant. This type of split incentive is familiar from research on energy efficiency.
+
+### 3. Builders may have different expectations
+
+Our engineering model uses information that would have been available when builders made their decisions.
+
+Nevertheless, builders may have formed different expectations about future electricity prices, net-metering rules, installation costs, equipment performance, or tax incentives.
+
+Reasonable decision-makers can disagree about the future.
+
+### 4. Solar payoffs may be relatively small and easy to overlook
+
+This explanation is easy to miss when the payoff is reported in dollars.
+
+The median estimated payoff in our primary analysis is roughly **$7,900**. That sounds substantial.
+
+But the median construction cost among projects with cost data is approximately **$500,000**. For most of those projects, the estimated solar payoff is less than 2 percent of total project cost; for almost all projects, it is below 5 percent.
+
+Builders manage financing, permits, inspections, subcontractors, and dozens of other decisions simultaneously.
+
+In that context, a benefit equal to one or two percent of project cost may simply receive relatively little attention—especially when it is uncertain or primarily benefits a future occupant.
+
+## What the paper does—and does not—show
+
+The paper does not identify a single reason builders often declined rooftop solar.
+
+Instead, it documents several related empirical facts:
+
+- estimated private payoffs were positive for most projects under a wide range of assumptions;
+- adoption remained low before mandates;
+- the very lowest-payoff projects were less likely to adopt; and
+- above that lower tail, the size of the estimated payoff only weakly predicted adoption.
+
+These findings support the existence of a solar gap, while leaving room for unobserved costs, differing expectations, split incentives, and other rational explanations.
+
+The extent of the gap is therefore bounded by the assumptions in the engineering model. The most optimistic net-present-value calculations provide an upper bound on what builders could be said to forgo.
+
+## Why this matters beyond rooftop solar
+
+The broader lesson extends beyond California.
+
+Climate policy increasingly depends on technologies that appear economically attractive: heat pumps, electric vehicles, home batteries, building retrofits, and distributed solar.
+
+For each technology, policymakers often ask:
+
+> **How much money does it save?**
+
+That is an important question.
+
+But this research suggests a second question may be equally important:
+
+> **How strongly does expected profitability actually predict adoption?**
+
+Those are not the same thing.
+
+A technology can appear financially attractive while still spreading more slowly than expected. Understanding that difference is essential before deciding whether additional information, financing, incentives, standards, or mandates are warranted.
 
 ---
 
-
-
-*This post is based on [Solar Adoption by Mandates](/publication/solar_mandates/). Read the [paper](/publication/solar_mandates/Carattini_Davis_Figge_and_Heimerdinger_2025.pdf).*
+*This post is based on [Solar Adoption by Mandates](/publication/solar_mandates/), joint work with Stefano Carattini, Wade Davis, and Anton Heimerdinger.*
 
 **Previous:** [How We Combined Engineering and Economics](/post/engineering-economics-rooftop-solar/)
 
-**Next:** [Did California’s Solar Mandate Work?](/post/did-california-solar-mandate-work/)
+**Next:** [Did California's Solar Mandate Increase Solar Adoption?](/post/did-california-solar-mandate-work/)
