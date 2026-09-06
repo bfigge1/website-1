@@ -20,9 +20,8 @@ organizations:
 # Interests to show in About widget
 interests:
 - Applied Microeconomics
+- Labor Economics
 - Public Economics
-- Education Policy
-- Environmental Economics
 
 # Education to show in About widget
 education:
