@@ -64,6 +64,3 @@ I am a Postdoctoral Research Fellow at the University of Michigan's Ford School 
 
 My research examines how decentralized policy implementation shapes outcomes. I focus on the local actors and governments that determine whether broader policy goals are achieved or undermined.
 
-My research on crisis pregnancy centers provides the first causal estimates of how crisis pregnancy centers (CPCs) affect fertility outcomes. Using a 30-year county panel from North and South Carolina and a new simulation-based instrumental variables approach, I find that CPCs reduce local abortion rates by 8 to 18 percent, with the largest effects among teenagers and young women.
-
-In published and working papers, I study how municipal building codes affect residential solar adoption in Germany and California.
