@@ -6,12 +6,14 @@ title: Béla Figge
 superuser: true
 
 # Role/position/tagline
-role: Ph.D. in Economics
+role: Postdoctoral Research Fellow
 
 # Organizations/Affiliations to show in About widget
 organizations:
-- name: Georgia State University
-  url: https://aysps.gsu.edu
+- name: Ford School of Public Policy, University of Michigan
+  url: https://fordschool.umich.edu
+- name: Department of Economics, Georgia State University (External Affiliate)
+  url: https://aysps.gsu.edu/economics/
 
 # Short bio (displayed in user profile at end of posts)
 
@@ -58,10 +60,10 @@ email: "bela.figge@gmail.com"
 highlight_name: true
 ---
 
-I'm on the job market.
+I am a Postdoctoral Research Fellow at the University of Michigan's Ford School of Public Policy and an External Affiliate of the Department of Economics at Georgia State University, where I received my Ph.D. in 2022.
 
 My research examines how decentralized policy implementation shapes outcomes. I focus on the local actors and governments that determine whether broader policy goals are achieved or undermined.
 
-My job market paper provides the first causal estimates of how crisis pregnancy centers (CPCs) affect fertility outcomes. Using a 30-year county panel from North and South Carolina and a new simulation-based instrumental variables approach, I find that CPCs reduce local abortion rates by 8 to 18 percent, with the largest effects among teenagers and young women.
+My research on crisis pregnancy centers provides the first causal estimates of how crisis pregnancy centers (CPCs) affect fertility outcomes. Using a 30-year county panel from North and South Carolina and a new simulation-based instrumental variables approach, I find that CPCs reduce local abortion rates by 8 to 18 percent, with the largest effects among teenagers and young women.
 
 In published and working papers, I study how municipal building codes affect residential solar adoption in Germany and California.

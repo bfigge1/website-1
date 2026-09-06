@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Tim R. Sass.
+title: Tim R. Sass
 
 # Is this the primary user of the site?
 superuser: false

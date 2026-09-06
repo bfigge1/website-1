@@ -10,15 +10,12 @@ authors:
 - gordan
 - loeschel 
 
-# Author notes (optional)
-author_notes:
-- "Equal contribution"
 
-date: "2023-11-14T00:00:00Z"
-doi: ""
+date: "2024-03-01T00:00:00Z"
+doi: "10.1016/j.jeem.2024.102937"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2023-11-14T00:00:00Z"
+publishDate: "2024-03-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -27,14 +24,14 @@ publishDate: "2023-11-14T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: ""
-publication_short: ""
+publication: "*Journal of Environmental Economics and Management*, 124, 102937"
+publication_short: "*Journal of Environmental Economics and Management*, 2024"
 
 abstract: Conflicting societal goals can lead to national and local policies that are at odds with each other. National policies promoting the adoption of solar photovoltaics may be counteracted by local policies defining the aesthetics of the built environment. As solar photovoltaic energy approaches grid parity globally, non-pecuniary barriers to the adoption of this important renewable energy source become increasingly salient. Using a unique survey of municipalities regarding such building codes and administrative data on all solar installations in Germany, a leader in solar adoption, we document the impact that municipalities amending their building codes to restrict solar installations, often with an eye toward preserving the historical nature of the town, has on solar adoption. We find that municipalities that implement solar policies have 10.4 percent less solar photovoltaic capacity than municipalities in the control group. We confirm our results when applying spatial techniques and analyzing the impact of such policies on regulated areas within municipalities.
 
 
 # Summary. An optional shortened abstract.
-summary: Municipal solar policies slow the adoption of solar photovoltaics.
+summary: Municipal solar policies aimed at historical preservation slow the adoption of solar photovoltaics. Using a survey of German municipalities and administrative data on all solar installations, we find that municipalities restricting solar installations in their building codes have 10.4 percent less solar capacity.
 
 tags: []
 

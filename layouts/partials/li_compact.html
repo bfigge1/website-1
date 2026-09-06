@@ -1,0 +1,110 @@
+{{ $item := . }}
+
+{{/* Site override of Wowchemy's compact list item.
+     For publications: title, coauthors ("with ..."), venue + year, and a full summary.
+     Other page types fall back to the theme's default behaviour. */}}
+{{ $show_authors_only := false }}
+{{ $link := $item.RelPermalink }}
+{{ $target := "" }}
+{{ if $item.Params.external_link }}
+  {{ $link = $item.Params.external_link }}
+  {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+{{ end }}
+{{ $is_pub := eq $item.Type "publication" }}
+{{ if eq $item.Type "event" }}
+  {{ $show_authors_only = true }}
+{{ else if $is_pub }}
+  {{ $show_authors_only = true }}
+{{ else if eq $item.Type "project" }}
+  {{ $show_authors_only = true }}
+{{ end }}
+
+{{ $has_attachments := partial "functions/has_attachments" . }}
+
+{{/* Get summary. Publications show the full summary (or full abstract); no truncation. */}}
+{{ $summary := "" }}
+{{ if $item.Params.summary }}
+  {{ $summary = $item.Params.summary | markdownify | emojify }}
+{{ else if .Params.abstract }}
+  {{ if $is_pub }}
+    {{ $summary = .Params.abstract | markdownify | emojify }}
+  {{ else }}
+    {{ $summary = .Params.abstract | markdownify | emojify | truncate (site.Params.abstract_length | default 135) }}
+  {{ end }}
+{{ else if $item.Summary }}
+  {{ $summary = $item.Summary }}
+{{ end }}
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{ $item.Title }}</a>
+    </div>
+
+    {{ if $is_pub }}
+    <div class="stream-meta article-metadata">
+      {{/* Coauthors: everyone except the site owner (highlight_name: true). */}}
+      {{ $coauthors := slice }}
+      {{ range (.GetTerms "authors") }}
+        {{ if not .Page.Params.highlight_name }}
+          {{ $coauthors = $coauthors | append . }}
+        {{ end }}
+      {{ end }}
+      {{ with $coauthors }}
+      <div>
+        with
+        {{- range $i, $a := . -}}
+          {{- if gt $i 0 }}, {{ end }}
+          <span>{{ if $a.RelPermalink }}<a href="{{ $a.RelPermalink }}">{{ $a.LinkTitle }}</a>{{ else }}{{ $a.LinkTitle }}{{ end }}</span>
+        {{- end }}
+      </div>
+      {{ end }}
+      <div>
+        {{ with $item.Params.publication }}<span class="pub-publication">{{ . | markdownify }}</span><span class="middot-divider"></span>{{ end }}
+        <span class="article-date">{{ $item.Date.Format (site.Params.publications.date_format | default "January 2006") }}</span>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with $summary }}
+    <a href="{{ $link }}" {{ $target | safeHTMLAttr }} class="summary-link">
+      <div class="article-style">
+        {{.}}
+      </div>
+    </a>
+    {{ end }}
+
+    {{ if not $is_pub }}
+    <div class="stream-meta article-metadata">
+      {{ if eq $item.Type "event" }}
+      <div>
+        <span>{{ partial "functions/get_event_dates" $item }}</span>
+        {{ with $item.Params.location }}<span class="middot-divider"></span><span>{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+      {{ if and $show_authors_only $item.Params.authors }}
+      <div>{{ partial "page_metadata_authors" $item }}</div>
+      {{ else if not $show_authors_only }}
+        {{ partial "page_metadata" (dict "page" $item "is_list" 1) }}
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if $has_attachments }}
+    <div class="btn-links">
+      {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+    </div>
+    {{ end }}
+
+  </div>
+  <div class="ml-3">
+    {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
+    {{ with $resource }}
+    {{ $image := .Resize "150x" }}
+    <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
+      <img src="{{ $image.RelPermalink }}" alt="{{ $item.Title }}" loading="lazy">
+    </a>
+    {{end}}
+  </div>
+</div>

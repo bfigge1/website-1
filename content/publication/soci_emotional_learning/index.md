@@ -8,9 +8,6 @@ authors:
 - admin
 - sass
 
-# Author notes (optional)
-author_notes:
-- "Equal contribution"
 
 date: "2020-08-01T00:00:00Z"
 doi: ""
@@ -25,15 +22,15 @@ publishDate: "2020-08-01T00:00:00Z"
 publication_types: ["4"]
 
 # Publication name and optional abbreviated publication name.
-publication: ""
-publication_short: ""
+publication: "Georgia Policy Labs, Georgia State University"
+publication_short: "Georgia Policy Labs policy report"
 
 abstract: There are hundreds of studies of the effects of social-emotional learning (SEL) programs, but only a small fraction of them provide causal evidence on the impacts of school-based “universal” (non- targeted) programs on student achievement.The most reliable studies of universal school-based SEL programs—those employing randomized controlled trials and large samples of students—showed positive effects of SEL on student achievement, on average, but there is substantial variation in the estimated impacts across studies. On average, SEL programs implemented in elementary schools tended to be more effective than those employed in secondary schools. However, impacts do not appear to vary consistently with the intensity of program delivery or with the economic status of the students a school serves. There are a variety of popular SEL programs, but the evidence base on the effects of any particular program on student outcomes is thin. The most frequently studied programs tend to garner mixed results.
 
 
 
 # Summary. An optional shortened abstract.
-summary: School-Based Social-Emotional Learning Programs and K-12 Academic Achievement.
+summary: A review of the causal evidence on universal school-based social-emotional learning programs. The most rigorous studies find positive average effects on achievement, with substantial variation across studies and stronger effects in elementary schools.
 tags: []
 
 # Display this page in the Featured widget?
