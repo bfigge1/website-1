@@ -14,7 +14,7 @@ categories:
 date: "2026-07-29T12:25:00-07:00"
 lastmod: "2026-07-29T13:45:00-07:00"
 featured: true
-draft: false
+draft: true
 
 image:
   caption: "Estimated effect of San Francisco's solar mandate"

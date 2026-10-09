@@ -13,7 +13,7 @@ categories:
 date: "2026-03-10T00:00:00Z"
 lastmod: "2026-03-10T00:00:00Z"
 featured: true
-draft: false
+draft: true
 
 image:
   caption: "CPC and abortion provider locations across the Carolinas"

@@ -1,4 +1,12 @@
 ---
+# Section taken offline: do not render or list posts.
+_build:
+  render: never
+  list: never
+cascade:
+  _build:
+    render: never
+    list: never
 title: Posts
 cms_exclude: true
 

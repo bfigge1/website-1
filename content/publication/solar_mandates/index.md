@@ -28,12 +28,6 @@ tags:
 
 featured: false
 
-links:
-- name: Writing series
-  url: /post/strange-economics-rooftop-solar/
-- name: The Solar Gap
-  url: /post/solar-gap/
-
 url_pdf: https://www.ifo.de/DocDL/cesifo1_wp12359.pdf
 url_code: ''
 url_dataset: ''
@@ -51,12 +45,3 @@ image:
 projects: ""
 slides: ""
 ---
-
-## Public-facing writing
-
-This paper is explained in a four-part series under [Writing](/#posts/):
-
-1. [The Strange Economics of Rooftop Solar](/post/strange-economics-rooftop-solar/)
-2. [How We Combined Engineering and Economics](/post/engineering-economics-rooftop-solar/)
-3. [The Solar Gap](/post/solar-gap/)
-4. [Did California's Solar Mandate Increase Solar Adoption?](/post/did-california-solar-mandate-work/)

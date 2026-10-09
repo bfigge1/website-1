@@ -14,7 +14,7 @@ categories:
 date: "2026-07-29T12:15:00-07:00"
 lastmod: "2026-07-29T13:45:00-07:00"
 featured: true
-draft: false
+draft: true
 
 image:
   caption: "Engineering estimates of rooftop solar payoffs"
