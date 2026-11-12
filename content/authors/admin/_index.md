@@ -10,7 +10,7 @@ role: Postdoctoral Research Fellow
 
 # Position lines shown under the name on the homepage
 positions:
-- Postdoctoral Research Fellow, Ford School of Public Policy, University of Michigan
+- Postdoctoral Research Fellow, [Education Policy Initiative](https://edpolicy.umich.edu/), Ford School of Public Policy, University of Michigan
 - External Affiliate, Department of Economics, Georgia State University
 
 # Organizations/Affiliations to show in About widget
@@ -68,5 +68,5 @@ email: "bela.figge@gmail.com"
 highlight_name: true
 ---
 
-My research examines how decentralized policy implementation shapes outcomes. I focus on the local actors and governments that determine whether broader policy goals are achieved or undermined.
+I study how policy is designed and carried out locally, by school districts, colleges, municipalities and nonprofits, and how that changes what the policy achieves. At Michigan I use administrative education records to study how the rules of state programs, such as the credit requirements for free community college, change student behavior and outcomes. In other work I examine how municipal building codes and solar mandates in Germany and California affected rooftop solar adoption, and how the spread of crisis pregnancy centers affected fertility decisions.
 
