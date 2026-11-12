@@ -1,30 +1,15 @@
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-#     desired widget in your `content/home/` folder.
-#   The weight parameter defines the order that the links will appear in.
+# Navigation links. `#name` points at a homepage section (file name in content/home/).
 
 main:
-  - name: JMP
-    url: uploads/figge_jmp.pdf
-    weight: 52
   - name: Research
     url: '#research'
-    weight: 58
+    weight: 10
   - name: Teaching
-    url: 'project/teaching'
-    weight: 66
+    url: '#teaching'
+    weight: 20
   - name: Media
-    url: 'project/media'
-    weight: 74
+    url: '#media'
+    weight: 30
   - name: CV
     url: uploads/bfigge_cv.pdf
-    weight: 80
-  - name: Contact
-    url: '#contact'
-    weight: 86
-
-# Link to a PDF of your resume/CV from the menu.
-# To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
-#  - name: CV
-#    url: uploads/resume.pdf
-#    weight: 70
+    weight: 40

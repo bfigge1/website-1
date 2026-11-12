@@ -36,16 +36,16 @@ tags: []
 # Display this page in the Featured widget?
 featured: false
 
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
+
+links:
+- name: Georgia Policy Labs page
+  url: https://gpl.gsu.edu/publications/social-emotional-learning/
 
 url_pdf: publication/soci_emotional_learning/sel_literature_review_2020.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: https://gpl.gsu.edu/publications/social-emotional-learning/
+url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''

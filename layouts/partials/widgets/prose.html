@@ -1,0 +1,6 @@
+{{/* Plain homepage section: heading plus the Markdown body of the widget file. */}}
+{{ $st := .page }}
+<div class="bf-wrap bf-section bf-prose">
+  {{ with $st.Title }}<h2>{{ . }}</h2>{{ end }}
+  {{ $st.Content }}
+</div>

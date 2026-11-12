@@ -1,0 +1,62 @@
+{{/* Research list grouped by publication type: journal articles, working papers, reports.
+     Each entry: title, "with" coauthors, venue and year, collapsible abstract, text links. */}}
+{{ $st := .page }}
+{{ $groups := slice
+  (dict "type" "2" "label" "Publications")
+  (dict "type" "3" "label" "Working papers")
+  (dict "type" "4" "label" "Policy reports") }}
+{{ $pubs := (where site.RegularPages "Type" "publication").ByDate.Reverse }}
+
+<div class="bf-wrap bf-section">
+  <h2>{{ $st.Title | default "Research" }}</h2>
+
+  {{ range $group := $groups }}
+    {{ $items := slice }}
+    {{ range $pubs }}
+      {{ $t := index (.Params.publication_types | default (slice "0")) 0 }}
+      {{ if eq (string $t) $group.type }}{{ $items = $items | append . }}{{ end }}
+    {{ end }}
+
+    {{ if $items }}
+    <h3>{{ $group.label }}</h3>
+    {{ range $p := $items }}
+      {{/* Coauthors: every listed author except the site owner (highlight_name: true). */}}
+      {{ $co := slice }}
+      {{ range $p.GetTerms "authors" }}
+        {{ if not .Page.Params.highlight_name }}{{ $co = $co | append .LinkTitle }}{{ end }}
+      {{ end }}
+      {{ $with := "" }}
+      {{ $n := len $co }}
+      {{ if eq $n 1 }}{{ $with = index $co 0 }}
+      {{ else if eq $n 2 }}{{ $with = printf "%s and %s" (index $co 0) (index $co 1) }}
+      {{ else if gt $n 2 }}{{ $with = printf "%s and %s" (delimit (first (sub $n 1) $co) ", ") (index $co (sub $n 1)) }}
+      {{ end }}
+
+      <div class="bf-paper">
+        <div class="bf-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></div>
+        <div class="bf-meta">
+          {{- with $with }}with {{ . }} · {{ end -}}
+          {{- with $p.Params.publication }}{{ . | markdownify }}, {{ end -}}
+          {{- $p.Date.Format "2006" -}}
+        </div>
+        <div class="bf-row">
+          {{ with $p.Params.abstract }}
+          <details><summary>Abstract</summary><div class="bf-abstract">{{ . | markdownify }}</div></details>
+          {{ end }}
+          {{ with $p.Params.url_pdf }}
+            {{ $u := . }}{{ if not (hasPrefix $u "http") }}{{ $u = relURL $u }}{{ end }}
+            <a href="{{ $u }}"{{ if hasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>PDF</a>
+          {{ end }}
+          {{ with $p.Params.doi }}
+            <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">Journal version</a>
+          {{ end }}
+          {{ range $p.Params.links }}
+            {{ $u := .url }}{{ if not (hasPrefix $u "http") }}{{ $u = relURL $u }}{{ end }}
+            <a href="{{ $u }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+    {{ end }}
+  {{ end }}
+</div>

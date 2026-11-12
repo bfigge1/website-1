@@ -8,6 +8,11 @@ superuser: true
 # Role/position/tagline
 role: Postdoctoral Research Fellow
 
+# Position lines shown under the name on the homepage
+positions:
+- Postdoctoral Research Fellow, Ford School of Public Policy, University of Michigan
+- External Affiliate, Department of Economics, Georgia State University
+
 # Organizations/Affiliations to show in About widget
 organizations:
 - name: Ford School of Public Policy, University of Michigan
@@ -35,22 +40,26 @@ education:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
-- icon: envelope
-  icon_pack: fas
-  link: '/#contact'
-- icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
-  icon_pack: fas
-  link: https://scholar.google.com/citations?user=KmpVxdUAAAAJ&hl=en
-- icon: github
-  icon_pack: fab
-  link: https://github.com/bfigge
-- icon: linkedin
-  icon_pack: fab
-  link: https://www.linkedin.com/in/bela-figge/
-
-- icon: cv
+- label: CV
+  icon: cv
   icon_pack: ai
   link: uploads/bfigge_cv.pdf
+- label: Google Scholar
+  icon: graduation-cap
+  icon_pack: fas
+  link: https://scholar.google.com/citations?user=KmpVxdUAAAAJ&hl=en
+- label: GitHub
+  icon: github
+  icon_pack: fab
+  link: https://github.com/bfigge
+- label: LinkedIn
+  icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/bela-figge/
+- label: bela.figge@gmail.com
+  icon: envelope
+  icon_pack: fas
+  link: mailto:bela.figge@gmail.com
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "bela.figge@gmail.com"
@@ -58,8 +67,6 @@ email: "bela.figge@gmail.com"
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
-
-I am a Postdoctoral Research Fellow at the University of Michigan's Ford School of Public Policy and an External Affiliate of the Department of Economics at Georgia State University, where I received my Ph.D. in 2022.
 
 My research examines how decentralized policy implementation shapes outcomes. I focus on the local actors and governments that determine whether broader policy goals are achieved or undermined.
 

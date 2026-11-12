@@ -19,3 +19,17 @@
   package = "netlify-plugin-hugo-cache-resources"
   [plugins.inputs]
     debug = true
+
+# Old project pages now live on the homepage
+[[redirects]]
+  from = "/project/teaching/*"
+  to = "/#teaching"
+  status = 301
+[[redirects]]
+  from = "/project/media/*"
+  to = "/#media"
+  status = 301
+[[redirects]]
+  from = "/project/*"
+  to = "/"
+  status = 301

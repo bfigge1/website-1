@@ -37,16 +37,16 @@ tags: []
 # Display this page in the Featured widget?
 featured: false
 
-# Custom links (uncomment lines below)
-# links: Full Report
-# - name: Full Report
-#   url: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
+
+links:
+- name: Georgia Policy Labs page
+  url: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
 
 url_pdf: publication/cte/cte_technical_assessments_report_2021.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: https://gpl.gsu.edu/publications/effect-of-passing-a-cte-technical-assessment-on-college-enrollment/
+url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''

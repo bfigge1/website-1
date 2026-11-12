@@ -5,7 +5,7 @@
 
 title: Béla Figge # Website name
 baseurl: 'https://belafigge.com/' # Website URL
-copyright: '' # Footer text, e.g. '© {year} Me'
+copyright: '© {year} Béla Figge' # Footer text, e.g. '© {year} Me'
 
 ############################
 ## LANGUAGE

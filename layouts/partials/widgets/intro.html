@@ -1,0 +1,41 @@
+{{/* Homepage intro: photo, name, positions, bio, link pills, fields line.
+     Reads the author profile named in the widget's `author` param (default "admin"). */}}
+{{ $st := .page }}
+{{ $author := $st.Params.author | default "admin" }}
+{{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
+{{ $person := $person_page.Params }}
+{{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
+
+<div class="bf-wrap">
+  <div class="bf-intro">
+    {{ with $avatar }}
+      {{ $img := .Fill "296x296 Center" }}
+      <img src="{{ $img.RelPermalink }}" alt="{{ $person_page.Title }}" width="148" height="148">
+    {{ end }}
+    <div>
+      <h1>{{ $person_page.Title }}</h1>
+      {{ with $person.positions }}
+      <p class="bf-role">
+        {{ range . }}<span>{{ . | markdownify }}</span>{{ end }}
+      </p>
+      {{ end }}
+      <div class="bf-bio">{{ $person_page.Content }}</div>
+      {{ with $person.social }}
+      <div class="bf-links">
+        {{ range . }}
+          {{ if .label }}
+            {{ $link := .link }}
+            {{ $external := hasPrefix $link "http" }}
+            {{ if not (or $external (hasPrefix $link "mailto:")) }}{{ $link = relURL $link }}{{ end }}
+            <a href="{{ $link }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+      {{ end }}
+      <div class="bf-fields">
+        {{ delimit ($person.interests | default slice) " · " }}
+        {{ range ($person.education.courses | default slice) }} · {{ .course }}, {{ .institution }}, {{ .year }}{{ end }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -35,16 +35,16 @@ tags: []
 # Display this page in the Featured widget?
 featured: false
 
-# Custom links (uncomment lines below)
-# links: Full Report
-# - name: Full Report
-#   url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
+
+links:
+- name: Georgia Policy Labs page
+  url: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
 
 url_pdf: publication/lucy_calkins/figge_lc_policy_report.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''
-url_project: https://gpl.gsu.edu/publications/impact-evaluation-of-the-lucy-calkins-units-of-study-program/
+url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''

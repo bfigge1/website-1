@@ -1,0 +1,205 @@
+// Site styles layered on top of Wowchemy. Palette and type match data/themes/scholar.toml
+// and data/fonts/scholar.toml.
+
+:root {
+  --bf-bg: #fbfbf9;
+  --bf-surface: #ffffff;
+  --bf-ink: #1b1d21;
+  --bf-muted: #5c616b;
+  --bf-faint: #8a8f98;
+  --bf-rule: #e4e4df;
+  --bf-accent: #1f4e79;
+  --bf-accent-soft: #e8eef5;
+  --bf-serif: "Source Serif 4", Georgia, serif;
+  --bf-sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+}
+body.dark {
+  --bf-bg: #15171a;
+  --bf-surface: #1c1f23;
+  --bf-ink: #e8e8e4;
+  --bf-muted: #a4a9b1;
+  --bf-faint: #7d838c;
+  --bf-rule: #2c3035;
+  --bf-accent: #8db6e0;
+  --bf-accent-soft: #1f2a36;
+}
+
+html { font-size: 16px !important; }
+
+body {
+  background: var(--bf-bg);
+  color: var(--bf-ink);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--bf-accent); }
+
+// Navigation bar
+.navbar,
+.navbar-light,
+body.dark .navbar {
+  background: var(--bf-bg) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--bf-rule);
+}
+.navbar-brand {
+  font-family: var(--bf-serif) !important;
+  font-weight: 600 !important;
+  font-size: 1.15rem !important;
+  color: var(--bf-ink) !important;
+}
+.navbar-nav .nav-link {
+  font-size: 0.875rem !important;
+  color: var(--bf-muted) !important;
+  font-weight: 400 !important;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active { color: var(--bf-ink) !important; }
+.navbar .nav-icons .nav-link { color: var(--bf-muted) !important; }
+
+// Homepage sections
+.home-section { padding: 0; background: var(--bf-bg); }
+.home-section-bg { background: var(--bf-bg) !important; }
+.wg-intro { padding-top: 56px; }
+
+.bf-wrap { max-width: 760px; margin: 0 auto; }
+
+.bf-section {
+  border-top: 1px solid var(--bf-rule);
+  padding: 36px 0 12px;
+}
+.bf-section h2 {
+  font-family: var(--bf-serif);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+  color: var(--bf-ink);
+}
+.bf-section h3 {
+  font-family: var(--bf-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bf-faint);
+  margin: 28px 0 4px;
+}
+
+// Intro
+.bf-intro {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: 32px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+.bf-intro img {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--bf-rule);
+}
+.bf-intro h1 {
+  font-family: var(--bf-serif);
+  font-weight: 600;
+  font-size: 2.125rem;
+  line-height: 1.15;
+  margin: 4px 0 6px;
+  letter-spacing: -0.01em;
+  color: var(--bf-ink);
+}
+.bf-role { color: var(--bf-muted); font-size: 0.9375rem; margin: 0 0 18px; }
+.bf-role span { display: block; }
+.bf-bio p { margin: 0 0 12px; font-size: 16px; line-height: 1.65; }
+.bf-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.bf-links a {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border: 1px solid var(--bf-rule);
+  border-radius: 999px;
+  color: var(--bf-ink);
+  background: var(--bf-surface);
+}
+.bf-links a:hover { border-color: var(--bf-accent); color: var(--bf-accent); text-decoration: none; }
+.bf-fields { margin-top: 14px; font-size: 0.8125rem; color: var(--bf-faint); }
+
+// Paper list
+.bf-paper { padding: 14px 0; border-bottom: 1px dashed var(--bf-rule); }
+.bf-paper:last-child { border-bottom: 0; }
+.bf-paper .bf-title {
+  font-family: var(--bf-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.bf-paper .bf-title a { color: var(--bf-ink); }
+.bf-paper .bf-title a:hover { color: var(--bf-accent); text-decoration: none; }
+.bf-paper .bf-meta { font-size: 0.875rem; color: var(--bf-muted); margin-top: 2px; }
+.bf-paper .bf-meta p { display: inline; margin: 0; }
+.bf-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+}
+.bf-row a { font-weight: 500; }
+.bf-row details[open] { flex-basis: 100%; }
+.bf-row summary {
+  cursor: pointer;
+  color: var(--bf-accent);
+  font-weight: 500;
+  list-style: none;
+}
+.bf-row summary::-webkit-details-marker { display: none; }
+.bf-row summary::before { content: "+ "; }
+.bf-row details[open] summary::before { content: "\2212  "; }
+.bf-row details .bf-abstract {
+  margin: 8px 0 2px;
+  font-size: 0.90625rem;
+  color: var(--bf-muted);
+  padding-left: 12px;
+  border-left: 2px solid var(--bf-accent-soft);
+}
+
+// Teaching and media lists
+.bf-prose ul { margin: 10px 0 0; padding: 0; list-style: none; }
+.bf-prose li { padding: 8px 0; font-size: 0.9375rem; }
+.bf-prose li p { margin: 0; }
+.bf-prose .bf-src { color: var(--bf-faint); font-size: 0.8125rem; display: block; }
+
+// Inner pages (publication detail pages and lists)
+h1, h2, h3, h4, .article-title {
+  font-family: var(--bf-serif);
+  font-weight: 600;
+}
+.article-container { max-width: 760px; }
+.btn-outline-primary {
+  color: var(--bf-accent);
+  border-color: var(--bf-rule);
+  border-radius: 999px;
+  font-weight: 500;
+}
+.btn-outline-primary:hover { background: var(--bf-accent); border-color: var(--bf-accent); color: #fff; }
+
+// Footer
+.site-footer {
+  border-top: 1px solid var(--bf-rule);
+  background: var(--bf-bg);
+  color: var(--bf-faint);
+  font-size: 0.8125rem;
+  padding: 24px 0 48px;
+  margin-top: 40px;
+}
+.site-footer .powered-by { color: var(--bf-faint); margin: 0; }
+
+@media (max-width: 620px) {
+  .wg-intro { padding-top: 32px; }
+  .bf-intro { grid-template-columns: 1fr; gap: 20px; }
+  .bf-intro img { width: 112px; height: 112px; }
+  .bf-intro h1 { font-size: 1.75rem; }
+}

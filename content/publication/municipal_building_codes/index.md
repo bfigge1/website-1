@@ -38,12 +38,13 @@ tags: []
 # Display this page in the Featured widget?
 featured: false
 
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: https://www.lse.ac.uk/granthaminstitute/wp-content/uploads/2022/10/working-paper-380_Carattini-Figge-Gordan-Loeschel.pdf
+links:
+- name: Working paper
+  url: https://www.cesifo.org/en/publications/2022/working-paper/municipal-building-codes-and-adoption-solar-photovoltaics
+- name: VoxEU column
+  url: https://cepr.org/voxeu/columns/municipal-building-codes-slow-down-energy-transition
 
-url_pdf:  https://www.cesifo.org/en/publications/2022/working-paper/municipal-building-codes-and-adoption-solar-photovoltaics
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''
