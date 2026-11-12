@@ -48,10 +48,11 @@ social:
   icon: graduation-cap
   icon_pack: fas
   link: https://scholar.google.com/citations?user=KmpVxdUAAAAJ&hl=en
-- label: GitHub
-  icon: github
-  icon_pack: fab
-  link: https://github.com/bfigge
+# GitHub link hidden for now; uncomment to restore.
+# - label: GitHub
+#   icon: github
+#   icon_pack: fab
+#   link: https://github.com/bfigge
 - label: LinkedIn
   icon: linkedin
   icon_pack: fab
