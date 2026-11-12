@@ -41,7 +41,7 @@ featured: false
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: SEL_Literature Review_20200825.pdf
+url_pdf: publication/soci_emotional_learning/sel_literature_review_2020.pdf
 url_code: ''
 url_dataset: ''
 url_poster: ''

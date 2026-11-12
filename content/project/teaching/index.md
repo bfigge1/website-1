@@ -1,8 +1,7 @@
 ---
 title: Teaching
 summary: Teaching Experience
-tags:
-- Teaching
+tags: []
 date: "2023-10-27T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
