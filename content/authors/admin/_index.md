@@ -10,8 +10,8 @@ role: Postdoctoral Research Fellow
 
 # Position lines shown under the name on the homepage
 positions:
-- Postdoctoral Research Fellow, [Education Policy Initiative](https://edpolicy.umich.edu/), Ford School of Public Policy, University of Michigan
-- External Affiliate, Department of Economics, Georgia State University
+- '<a class="bf-rl" href="https://edpolicy.umich.edu/fellows/bela-figge"><b>Postdoctoral Research Fellow</b></a>, [Education Policy Initiative](https://edpolicy.umich.edu/), Ford School of Public Policy,<br><span class="bf-nw">University of Michigan.</span>'
+- External Affiliate, Department of Economics, Georgia State University.
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -69,5 +69,5 @@ email: "bela.figge@gmail.com"
 highlight_name: true
 ---
 
-I study how policy is designed and carried out locally, by school districts, colleges, municipalities and nonprofits, and how that changes what the policy achieves. At Michigan I use administrative education records to study how the rules of state programs, such as the credit requirements for free community college, change student behavior and outcomes. In other work I examine how municipal building codes and solar mandates in Germany and California affected rooftop solar adoption, and how the spread of crisis pregnancy centers affected fertility decisions.
+I study how policy is designed and carried out locally, by school districts, colleges, municipalities and nonprofits, and how that changes what the policy achieves. At Michigan I work with [Kevin Stange](https://fordschool.umich.edu/faculty/kevin-stange) and use administrative education records to study how the rules of state programs, such as the credit requirements for free community college, change student behavior and outcomes. In other work I examine how municipal building codes and solar mandates in Germany and California affected rooftop solar adoption, and how the spread of <mark>crisis pregnancy centers</mark> affected fertility decisions.
 

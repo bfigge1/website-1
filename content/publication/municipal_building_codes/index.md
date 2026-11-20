@@ -33,6 +33,11 @@ abstract: Conflicting societal goals can lead to national and local policies tha
 # Summary. An optional shortened abstract.
 summary: Municipal solar policies aimed at historical preservation slow the adoption of solar photovoltaics. Using a survey of German municipalities and administrative data on all solar installations, we find that municipalities restricting solar installations in their building codes have 10.4 percent less solar capacity.
 
+# One-sentence result shown under the title on the homepage
+finding: "Municipalities whose building codes restrict solar installations, mostly to preserve historic townscapes, have 10.4 percent less solar capacity."
+# Highlight the title on the homepage (main papers)
+highlight: true
+
 tags: []
 
 # Display this page in the Featured widget?

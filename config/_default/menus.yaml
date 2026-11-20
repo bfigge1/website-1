@@ -10,6 +10,9 @@ main:
   - name: Media
     url: '#media'
     weight: 30
+  - name: Contact
+    url: '#contact'
+    weight: 40
   - name: CV
     url: uploads/bfigge_cv.pdf
-    weight: 40
+    weight: 50

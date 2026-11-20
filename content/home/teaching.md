@@ -5,6 +5,5 @@ active: true
 weight: 60
 title: Teaching
 ---
-
-- The Global Economy (undergraduate, non-majors), principal instructor, Georgia State University, Fall 2020. Teaching evaluation 4.5 out of 5.
-  <span class="bf-src"><a href="uploads/teaching/figge_teaching_statement.pdf">Teaching statement</a> · <a href="uploads/teaching/figge_global_economy_evaluations_1.pdf">Evaluations (1)</a> · <a href="uploads/teaching/figge_global_economy_evaluations_2.pdf">Evaluations (2)</a></span>
+<div class="bf-row"><div><span class="bf-ttl">The Global Economy</span><span class="bf-ds">: undergraduate course for non-majors, principal instructor, Georgia State University, Fall 2020. Teaching evaluation 4.5 out of 5.</span>
+<div class="bf-ln"><a href="uploads/teaching/figge_teaching_statement.pdf">Teaching statement</a><a href="uploads/teaching/figge_global_economy_evaluations_1.pdf">Evaluations (1)</a><a href="uploads/teaching/figge_global_economy_evaluations_2.pdf">Evaluations (2)</a></div></div></div>

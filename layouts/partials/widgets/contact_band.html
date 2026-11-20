@@ -1,0 +1,19 @@
+{{/* Closing contact band: section label, a short invitation (the widget file's body)
+     and the author's links. */}}
+{{ $st := .page }}
+{{ $author := $st.Params.author | default "admin" }}
+{{ $person := (site.GetPage (printf "/authors/%s" $author)).Params }}
+<div class="bf-wrap bf-sec">
+  <h2 class="bf-lab">{{ $st.Title | default "Contact" }}</h2>
+  <div class="bf-contact-body">{{ $st.Content }}</div>
+  <p class="bf-cl">
+    {{ range $person.social }}
+      {{ if .label }}
+        {{ $link := .link }}
+        {{ $external := hasPrefix $link "http" }}
+        {{ if not (or $external (hasPrefix $link "mailto:")) }}{{ $link = relURL $link }}{{ end }}
+        <a href="{{ $link }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+      {{ end }}
+    {{ end }}
+  </p>
+</div>

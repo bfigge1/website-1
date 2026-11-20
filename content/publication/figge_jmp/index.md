@@ -31,6 +31,11 @@ abstract: This paper provides the first causal estimates of how Crisis Pregnancy
 # Summary. An optional shortened abstract.
 summary: Crisis pregnancy centers (CPCs) seek to reduce abortion incidence by providing counseling to pregnant women. Using a 30-year county-level panel from North and South Carolina, I estimate that CPC presence reduces abortion rates by 18 percent, with the largest effects among teenagers and young women.
 
+# One-sentence result shown under the title on the homepage
+finding: "When a crisis pregnancy center opens in a county, abortion rates fall by 18 percent."
+# Highlight the title on the homepage (main papers)
+highlight: true
+
 tags: []
 
 # Display this page in the Featured widget?

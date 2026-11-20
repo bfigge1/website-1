@@ -1,5 +1,8 @@
 {{/* Research list grouped by publication type: journal articles, working papers, reports.
-     Each entry: title, "with" coauthors, venue and year, collapsible abstract, text links. */}}
+     Each entry: title (highlighted when `highlight: true`), coauthors, venue and year,
+     a one-sentence `finding`, then a line with Abstract and the links.
+     On desktop the abstract opens when hovering over the finding and links; on touch
+     screens the Abstract button opens it (see bf-papers.js). */}}
 {{ $st := .page }}
 {{ $groups := slice
   (dict "type" "2" "label" "Publications")
@@ -7,8 +10,8 @@
   (dict "type" "4" "label" "Policy reports") }}
 {{ $pubs := (where site.RegularPages "Type" "publication").ByDate.Reverse }}
 
-<div class="bf-wrap bf-section">
-  <h2>{{ $st.Title | default "Research" }}</h2>
+<div class="bf-wrap bf-sec">
+  <h2 class="bf-lab">{{ $st.Title | default "Research" }}</h2>
 
   {{ range $group := $groups }}
     {{ $items := slice }}
@@ -32,31 +35,41 @@
       {{ else if gt $n 2 }}{{ $with = printf "%s and %s" (delimit (first (sub $n 1) $co) ", ") (index $co (sub $n 1)) }}
       {{ end }}
 
-      <div class="bf-paper">
-        <div class="bf-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></div>
-        <div class="bf-meta">
-          {{- with $with }}with {{ . }} · {{ end -}}
-          {{- with $p.Params.publication }}{{ . | markdownify }}, {{ end -}}
-          {{- $p.Date.Format "2006" -}}
-        </div>
-        <div class="bf-row">
-          {{ with $p.Params.abstract }}
-          <details><summary>Abstract</summary><div class="bf-abstract">{{ . | markdownify }}</div></details>
-          {{ end }}
-          {{ with $p.Params.url_pdf }}
-            {{ $u := . }}{{ if not (hasPrefix $u "http") }}{{ $u = relURL $u }}{{ end }}
-            <a href="{{ $u }}"{{ if hasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>PDF</a>
-          {{ end }}
-          {{ with $p.Params.doi }}
-            <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">Journal version</a>
-          {{ end }}
-          {{ range $p.Params.links }}
-            {{ $u := .url }}{{ if not (hasPrefix $u "http") }}{{ $u = relURL $u }}{{ end }}
-            <a href="{{ $u }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
-          {{ end }}
+      <div class="bf-row">
+        <div>
+          <a class="bf-ttl{{ if $p.Params.highlight }} bf-key{{ end }}" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a><span class="bf-ds">:
+            {{- with $with }} with {{ . }},{{ end }}
+            {{- with $p.Params.publication }} {{ . | markdownify }},{{ end }}
+            {{ $p.Date.Format "2006" -}}
+          </span>
+          <div class="bf-hz">
+            {{ with $p.Params.finding }}<p class="bf-find">{{ . | markdownify }}</p>{{ end }}
+            <div class="bf-ln">
+              {{- with $p.Params.abstract }}<button type="button" class="bf-abbtn">Abstract</button>{{ end -}}
+              {{- with $p.Params.url_pdf }}
+                {{- $u := . }}{{ if not (hasPrefix $u "http") }}{{ $u = relURL $u }}{{ end -}}
+                <a href="{{ $u }}"{{ if hasPrefix . "http" }} target="_blank" rel="noopener"{{ end }}>PDF</a>
+              {{- end -}}
+              {{- with $p.Params.doi -}}
+                <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">Journal version</a>
+              {{- end -}}
+              {{- range $p.Params.links -}}
+                {{- $u := .url }}{{ if not (hasPrefix $u "http") }}{{ $u = relURL $u }}{{ end -}}
+                <a href="{{ $u }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
+              {{- end -}}
+            </div>
+            {{ with $p.Params.abstract }}<div class="bf-ab">{{ . | markdownify }}</div>{{ end }}
+          </div>
         </div>
       </div>
     {{ end }}
     {{ end }}
   {{ end }}
 </div>
+
+<script>
+  /* Touch screens: the Abstract button opens and closes the abstract. */
+  document.querySelectorAll('.bf-abbtn').forEach(function (b) {
+    b.addEventListener('click', function () { b.closest('.bf-row').classList.toggle('bf-open'); });
+  });
+</script>
